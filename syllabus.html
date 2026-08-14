@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Electrical Engineering Research Project — Course Syllabus | EE10</title>
+<style>
+  :root{
+    --navy:#1a2f5a; --navy-dark:#12213f; --gold:#c9a227; --accent:#2e6da4;
+    --new:#0e7c4a; --upd:#b3541e; --ink:#26303b; --muted:#5c6b7a;
+    --line:#d8dee6; --bg:#f4f6f9; --card:#ffffff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:Georgia,'Times New Roman',serif;color:var(--ink);background:var(--bg);line-height:1.65;}
+  .sans{font-family:'Segoe UI',Arial,Helvetica,sans-serif;}
+
+  header.masthead{background:linear-gradient(135deg,var(--navy-dark),var(--navy) 60%,#24457e);color:#fff;padding:42px 24px 34px;text-align:center;}
+  header.masthead .kicker{font-family:'Segoe UI',Arial,sans-serif;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:#c7d3e8;}
+  header.masthead h1{font-size:1.9rem;margin:.45em auto .25em;max-width:900px;letter-spacing:.01em;}
+  header.masthead .subtitle{font-family:'Segoe UI',Arial,sans-serif;color:#dbe4f3;font-size:.92rem;}
+  header.masthead .rule{width:90px;height:3px;background:var(--gold);margin:16px auto 0;border-radius:2px;}
+
+  nav{position:sticky;top:0;z-index:50;background:var(--navy-dark);box-shadow:0 2px 8px rgba(0,0,0,.25);}
+  nav ul{display:flex;flex-wrap:wrap;justify-content:center;list-style:none;}
+  nav a{display:block;padding:10px 13px;color:#e7edf7;text-decoration:none;font-family:'Segoe UI',Arial,sans-serif;font-size:.8rem;letter-spacing:.03em;}
+  nav a:hover{background:var(--navy);color:var(--gold);}
+
+  main{max-width:980px;margin:0 auto;padding:34px 20px 70px;}
+  section{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:30px 36px;margin-bottom:28px;box-shadow:0 1px 4px rgba(20,35,60,.06);scroll-margin-top:64px}
+  h2{font-family:'Segoe UI',Arial,sans-serif;color:var(--navy);font-size:1.3rem;border-bottom:3px solid var(--gold);padding-bottom:8px;margin-bottom:18px;}
+  h3{font-family:'Segoe UI',Arial,sans-serif;color:var(--accent);font-size:1.06rem;margin:24px 0 10px;}
+  h4{font-family:'Segoe UI',Arial,sans-serif;color:var(--navy);font-size:.95rem;margin:16px 0 6px;}
+  p{margin-bottom:13px;text-align:justify;}
+  ul.plain{margin:0 0 13px 24px;}
+  ul.plain li{margin-bottom:6px;}
+  ol.plain{margin:0 0 13px 26px;}
+  ol.plain li{margin-bottom:6px;}
+
+  .lead{font-size:1.06rem;color:#33404e;}
+  .callout{background:#eef3fa;border-left:4px solid var(--accent);padding:14px 18px;border-radius:0 6px 6px 0;margin:16px 0;font-size:.95rem;}
+  .callout.gold{background:#faf6e9;border-left-color:var(--gold);}
+  .callout.green{background:#f2f7ee;border-left-color:var(--new);}
+  .callout.red{background:#fdf1f1;border-left-color:#a52a2a;}
+  .callout .label{display:block;font-family:'Segoe UI',Arial,sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);margin-bottom:4px;}
+
+  .info-grid{display:grid;grid-template-columns:200px 1fr;gap:8px 18px;font-size:.98rem;}
+  .info-grid dt{font-family:'Segoe UI',Arial,sans-serif;font-weight:600;color:var(--navy);}
+  .info-grid dd{margin:0;}
+
+  .badge{display:inline-block;font-family:'Segoe UI',Arial,sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.08em;padding:2px 8px;border-radius:10px;vertical-align:middle;text-transform:uppercase;margin-left:6px;}
+  .badge.new{background:#e2f4ea;color:var(--new);border:1px solid #9fd4b6;}
+  .badge.updated{background:#fbeadd;color:var(--upd);border:1px solid #e2b28c;}
+  .badge.mandated{background:#fde8e8;color:#a52a2a;border:1px solid #e8a8a8;}
+  .badge.p1{background:#e6eefb;color:#1c4f9c;border:1px solid #9db8e4;}
+  .badge.p2{background:#efe7f7;color:#5b2f8f;border:1px solid #c1a8dd;}
+
+  table{width:100%;border-collapse:collapse;font-size:.9rem;margin:14px 0 6px;}
+  th{background:var(--navy);color:#fff;font-family:'Segoe UI',Arial,sans-serif;font-weight:600;padding:9px 12px;text-align:left;}
+  td{border:1px solid var(--line);padding:9px 12px;vertical-align:top;background:#fff;}
+  tr:nth-child(even) td{background:#f7f9fc;}
+  .unit-row td{background:#e9eef6 !important;color:var(--navy);font-family:'Segoe UI',Arial,sans-serif;font-weight:700;letter-spacing:.04em;font-size:.85rem;}
+  .week-col{width:78px;white-space:nowrap;font-weight:600;color:var(--navy);}
+  .period-banner{background:linear-gradient(90deg,var(--navy),#2c4d88);color:#fff;font-family:'Segoe UI',Arial,sans-serif;font-weight:600;padding:10px 16px;border-radius:6px;margin:24px 0 4px;letter-spacing:.04em;font-size:.95rem;}
+
+  .legend{display:flex;gap:14px;flex-wrap:wrap;margin:10px 0 4px;font-family:'Segoe UI',Arial,sans-serif;font-size:.8rem;color:var(--muted);align-items:center;}
+
+  .timeline{list-style:none;margin:14px 0;padding-left:0;}
+  .timeline li{position:relative;padding:0 0 14px 26px;border-left:2px solid #c6d2e4;margin-left:8px;}
+  .timeline li:last-child{border-left:2px solid transparent;}
+  .timeline li::before{content:"";position:absolute;left:-7px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--gold);border:2px solid var(--navy);}
+  .timeline .when{font-family:'Segoe UI',Arial,sans-serif;font-weight:700;color:var(--navy);font-size:.85rem;display:block;}
+
+  .num{text-align:right;white-space:nowrap;}
+  .ctr{text-align:center;}
+  main a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(46,109,164,.4);}
+  main a:hover{color:var(--navy-dark);background:#eef3fa;border-bottom-color:var(--navy);}
+  .badge.free{background:#e2f4ea;color:var(--new);border:1px solid #9fd4b6;}
+  .badge.lib{background:#eef0f4;color:var(--muted);border:1px solid #c4ccd8;}
+
+  footer{background:var(--navy-dark);color:#b9c6da;text-align:center;padding:24px 16px;font-family:'Segoe UI',Arial,sans-serif;font-size:.8rem;}
+  @media (max-width:700px){.info-grid{grid-template-columns:1fr;} section{padding:20px 16px;} table{font-size:.8rem;} th,td{padding:6px 8px;}}
+  @media print{nav{display:none;} body{background:#fff;} section{box-shadow:none;border:none;page-break-inside:avoid;} header.masthead{-webkit-print-color-adjust:exact;print-color-adjust:exact;}}
+  @media print{main a{color:var(--ink);border-bottom:none;} main a[href^="http"]::after{content:" [" attr(href) "]";font-family:'Segoe UI',Arial,sans-serif;font-size:.62rem;color:#5c6b7a;word-break:break-all;}}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="kicker">Republic of the Philippines · Rizal Technological University · Cities of Mandaluyong and Pasig</div>
+  <h1>Electrical Engineering Research Project — Course Syllabus</h1>
+  <div class="subtitle">EE10 Syllabus • College of Engineering and Industrial Technology • Course Professor: Dr. Ryan Manuel D. Guido</div>
+  <div class="rule"></div>
+</header>
+
+<nav class="sans">
+  <ul>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#outcomes">Learning Outcomes</a></li>
+    <li><a href="#outline">Course Outline</a></li>
+    <li><a href="#plan">Learning Plan</a></li>
+    <li><a href="#ideation">Design Thinking</a></li>
+    <li><a href="#ideabank">Idea Bank</a></li>
+    <li><a href="#phase1">Phase 1 Paper</a></li>
+    <li><a href="#phase2">Phase 2 Prototype</a></li>
+    <li><a href="#defense">Final Defense</a></li>
+    <li><a href="#map">Course Map</a></li>
+    <li><a href="#grading">Grading</a></li>
+    <li><a href="#rubrics">Rubrics</a></li>
+    <li><a href="#readings">Readings</a></li>
+    <li><a href="#policies">Policies</a></li>
+  </ul>
+</nav>
+
+<main>
+
+<!-- ============ OVERVIEW ============ -->
+<section id="overview">
+  <h2>Course Overview</h2>
+  <dl class="info-grid">
+    <dt>Course Title</dt><dd><strong>Electrical Engineering Research Project</strong></dd>
+    <dt>Course Code</dt><dd>EE10</dd>
+    <dt>Course Type</dt><dd>Lecture with integrated research studio and prototype laboratory</dd>
+    <dt>No. of Units</dt><dd><strong>3 units</strong></dd>
+    <dt>Contact Hours</dt><dd><strong>3 hours per week · 15 weeks per semester, inclusive of the Preliminary, Midterm, and Final Examinations</strong></dd>
+    <dt>Prerequisites</dt><dd>Engineering Data Analysis; Electronics and Instrumentation; Fourth-year standing</dd>
+    <dt>Semester / Year Level</dt><dd>First Semester, 4th Year · A.Y. 2026–2027</dd>
+    <dt>Course Professor</dt><dd><strong>Dr. Ryan Manuel D. Guido</strong></dd>
+  </dl>
+
+  <h3>Course Description</h3>
+  <p>This course carries an electrical engineering research project from the first spark of an idea to a defended, publication-ready body of work within a single 15-week semester. It is organized as <strong>two linked studies executed back to back</strong>. In <strong>Phase 1 (Weeks 1–8)</strong>, teams run a structured design-thinking and ideation sprint, write and defend a <strong>research project proposal</strong>, and then convert the proposal's literature foundation into a rigorous <strong>review or scientometric (bibliometric) paper</strong> written in IEEE double-column format and submitted to an <strong>IEEE conference or journal indexed in IEEE Xplore</strong>. In <strong>Phase 2 (Weeks 9–15)</strong>, the research gap identified and quantified in Phase 1 is answered by <strong>building, calibrating, validating, and demonstrating a working prototype</strong> — an instrument, a handheld device, an embedded or edge-AI system, or a companion application — which is then written up as a <strong>full IEEE article</strong> and defended before a panel.</p>
+  <p>The course is deliberately <strong>technological but restrained in scale</strong>. Teams are held to a simple architecture and a single well-defended claim, which forces the innovation into sensing strategy, signal processing, embedded intelligence, and validation rigor rather than into elaborate hardware. The guiding standard is <em>simple to build, hard to argue with, and demonstrably useful</em>: a device or system that a barangay, a clinic, a farm cooperative, a small plant, or a distribution utility could actually deploy, benchmarked against a calibrated reference and reported with honest uncertainty.</p>
+  <div class="callout"><span class="label">Five Course Thrusts</span>(i) Design thinking and structured ideation for high-impact engineering innovation · (ii) The research project proposal and its defense · (iii) Phase 1 — scientometric/review paper submitted to IEEE Xplore · (iv) Phase 2 — prototype execution, calibration, and validation · (v) The full IEEE article and the final panel defense.</div>
+  <div class="callout green"><span class="label">Two Papers, One Semester</span><strong>Phase 1 output:</strong> a 6–8 page IEEE-format review or scientometric paper mapping the field, quantifying the research front, and stating the gap — submitted by <strong>Week 8</strong>. <strong>Phase 2 output:</strong> a full IEEE article reporting the prototype's design, validation against a reference standard, and impact — camera-ready by <strong>Week 14</strong> and defended in <strong>Week 15</strong>. Phase 1 is the argument that the problem matters; Phase 2 is the evidence that the team solved a piece of it.</div>
+  <div class="callout gold"><span class="label">Note on Indexing</span>IEEE Xplore is a digital library, not a venue. Papers reach it by being accepted at an <strong>IEEE-sponsored conference</strong> or an <strong>IEEE journal</strong> that publishes there. Each team therefore selects a specific target venue with the Course Professor's approval, follows that venue's author kit and page limit, and clears IEEE PDF eXpress before submission. Grading is based on <strong>submission readiness and proof of submission</strong>, never on acceptance, which falls outside the semester.</div>
+</section>
+
+<!-- ============ OUTCOMES ============ -->
+<section id="outcomes">
+  <h2>Learning Outcomes</h2>
+  <p>Upon completion of this course, the students should be able to:</p>
+
+  <h3>Knowledge</h3>
+  <ol class="plain">
+    <li><strong>(CO1)</strong> Explain the engineering research process — problem formulation, review of related literature, research design, ethical clearance, and scholarly dissemination — and apply IEEE authorship, citation, and publication-ethics standards.</li>
+    <li><strong>(CO2)</strong> Apply scientometric and bibliometric methods — reproducible database queries, PRISMA-guided screening, performance analysis, and science mapping — to characterize a research field and defend a quantified research gap.</li>
+    <li><strong>(CO3)</strong> Apply design thinking and the engineering design process to generate, screen, and select an innovative yet buildable electrical engineering solution under realistic safety, standards, and availability constraints.</li>
+  </ol>
+
+  <h3>Skills</h3>
+  <ol class="plain">
+    <li><strong>(CO4)</strong> Design, fabricate, program, and integrate a functional prototype — instrument, handheld device, embedded/edge-AI system, or companion application — using modern engineering tools for schematic capture, PCB layout, firmware, simulation, and data analysis.</li>
+    <li><strong>(CO5)</strong> Calibrate and validate the prototype against a calibrated reference instrument or accepted standard, and report accuracy, precision, repeatability, agreement, and measurement uncertainty honestly.</li>
+    <li><strong>(CO6)</strong> Produce two IEEE-formatted manuscripts — a Phase 1 review/scientometric paper and a Phase 2 full article — and defend the work orally before a technical panel with a clear, evidence-led presentation and a live prototype demonstration.</li>
+  </ol>
+
+  <h3>Values and Research</h3>
+  <ol class="plain">
+    <li><strong>(CO7)</strong> Work productively as a member and leader of a project team: plan, procure, document, and deliver against firm milestones with a complete engineering logbook and traceable version control.</li>
+    <li>Uphold research integrity — honest reporting of results, no fabricated or beautified data, proper attribution, disclosed use of generative AI tools, and similarity-checked writing. <span class="badge mandated">Ethics</span></li>
+    <li>Practice electrical safety and regulatory compliance under the Philippine Electrical Code and the IEEE Code of Ethics, and evaluate each design for its societal, economic, environmental, and sustainability impact on Philippine communities.</li>
+    <li>Embody the RTU core values — Integrity, Innovativeness, Excellence, Nationalism, and Inclusivity — by directing engineering innovation toward problems that matter locally.</li>
+  </ol>
+</section>
+
+<!-- ============ OUTLINE ============ -->
+<section id="outline">
+  <h2>Course Outline and Timeframe</h2>
+  <div class="legend">
+    <span><span class="badge mandated" style="margin-left:0">Exam</span> University examination week</span>
+    <span><span class="badge p1" style="margin-left:0">Phase 1</span> proposal and scientometric/review paper</span>
+    <span><span class="badge p2" style="margin-left:0">Phase 2</span> prototype and full article</span>
+    <span><span class="badge new" style="margin-left:0">Milestone</span> graded deliverable due</span>
+    <span><span class="badge updated" style="margin-left:0">Studio</span> hands-on studio or build sprint</span>
+  </div>
+  <table>
+    <thead><tr><th class="week-col">Week</th><th style="width:64px">Unit</th><th>Topic</th></tr></thead>
+    <tbody>
+      <tr class="unit-row"><td colspan="3">UNIT I — IDEATION, DESIGN THINKING, AND THE RESEARCH PROJECT PROPOSAL (PRELIM PERIOD) <span class="badge p1">Phase 1</span></td></tr>
+      <tr><td class="week-col">1</td><td>1</td><td>Orientation and the engineering research landscape: what counts as research in electrical engineering; research vs. design project vs. product; the two-phase model of this course; problem formulation, research questions, and objectives; the IEEE publication ecosystem and how papers reach IEEE Xplore; RTU VMV and the IEEE Code of Ethics</td></tr>
+      <tr><td class="week-col">2</td><td>2</td><td>Design thinking sprint I — Discover and Define: immersion and field observation, stakeholder interviews, the POEMS framework, 5 Whys, pain-point mapping, point-of-view statements and <em>How Might We</em> questions <span class="badge updated">Studio</span></td></tr>
+      <tr><td class="week-col">3</td><td>3</td><td>Design thinking sprint II — Ideate and Screen: divergent ideation, SCAMPER, TRIZ contradictions, morphological matrix, analogical and biomimetic transfer; concept convergence with the Pugh matrix and the IMPACT-30 screen; the buildability and component-availability gate <span class="badge updated">Studio</span> <span class="badge new">Milestone</span></td></tr>
+      <tr><td class="week-col">4</td><td>4</td><td>The research project proposal: title construction, background and rationale, statement of the problem, conceptual and block-diagram framework, scope and delimitation, significance, methodology, Gantt chart and resource plan; novelty statement and prior-art search in IEEE Xplore <span class="badge new">Milestone</span></td></tr>
+      <tr><td class="week-col">5</td><td>—</td><td>PRELIMINARY EXAMINATION (coverage: Weeks 1–4) <span class="badge mandated">Exam</span> · <strong>Proposal defense</strong> before the panel; approved title, approved scope, and registered Phase 1 scientometric protocol <span class="badge new">Milestone</span></td></tr>
+
+      <tr class="unit-row"><td colspan="3">UNIT II — SCIENTOMETRIC AND REVIEW PAPER DEVELOPMENT FOR IEEE XPLORE (MIDTERM PERIOD) <span class="badge p1">Phase 1</span></td></tr>
+      <tr><td class="week-col">6</td><td>5</td><td>Scientometric methods and corpus construction: bibliographic databases (Scopus, Web of Science, IEEE Xplore); reproducible Boolean query strings, field tags, and filters; PRISMA 2020 identification–screening–eligibility–inclusion; data cleaning, author and affiliation disambiguation, keyword harmonization <span class="badge updated">Studio</span></td></tr>
+      <tr><td class="week-col">7</td><td>6</td><td>Performance analysis and science mapping: annual growth rate, productivity and citation metrics, h- and g-index, Bradford's law of scattering, Lotka's law; co-authorship, keyword co-occurrence, co-citation and bibliographic coupling; thematic maps, thematic evolution, and three-field plots using Biblioshiny/bibliometrix, VOSviewer, and Python <span class="badge updated">Studio</span></td></tr>
+      <tr><td class="week-col">8</td><td>7</td><td>Writing and submitting the Phase 1 paper: the IEEE conference/review template, structuring a review or scientometric article, figure and table craft, synthesizing findings into a research-gap statement and technology roadmap; internal peer review, similarity check, IEEE PDF eXpress, and submission to the approved target venue <span class="badge new">Milestone</span> <span class="badge p1">Phase 1</span></td></tr>
+      <tr><td class="week-col">9</td><td>8</td><td>Phase 2 kickoff — the engineering design process: converting the Phase 1 gap into requirements and measurable specifications; system architecture and block diagrams; sensor and MCU selection; schematic capture, PCB planning, firmware architecture; verification and validation planning; safety and standards review · <strong>Phase 2 design colloquium</strong> <span class="badge p2">Phase 2</span> <span class="badge new">Milestone</span></td></tr>
+      <tr><td class="week-col">10</td><td>—</td><td>MIDTERM EXAMINATION (coverage: Weeks 6–9) <span class="badge mandated">Exam</span> · Approved Phase 2 design document, finalized component list, procurement and fabrication plan <span class="badge new">Milestone</span></td></tr>
+
+      <tr class="unit-row"><td colspan="3">UNIT III — PROTOTYPE EXECUTION, VALIDATION, AND THE FULL ARTICLE (FINAL PERIOD) <span class="badge p2">Phase 2</span></td></tr>
+      <tr><td class="week-col">11</td><td>9</td><td>Build sprint 1 — bring-up: power rails and protection, MCU flashing and toolchain, sensor interfacing and bus debugging (I²C/SPI/UART/ADC), signal conditioning and anti-alias filtering, first light on the breadboard; engineering logbook and version control discipline <span class="badge updated">Studio</span></td></tr>
+      <tr><td class="week-col">12</td><td>10</td><td>Build sprint 2 — integration: firmware state machines and sampling strategy, on-device processing (filtering, FFT, TinyML inference where applicable), connectivity (Wi-Fi/BLE/LoRa), companion app or dashboard, PCB and enclosure fabrication, human factors and usability · <strong>Critical design review</strong> <span class="badge updated">Studio</span> <span class="badge new">Milestone</span></td></tr>
+      <tr><td class="week-col">13</td><td>11</td><td>Calibration, validation, and testing: reference instruments and traceability, calibration curves, paired-measurement experiment design, accuracy and precision (MAE, RMSE, MAPE, R²), Bland–Altman agreement, repeatability and drift, uncertainty budget, environmental and safety testing; results tables and figures <span class="badge updated">Studio</span> <span class="badge new">Milestone</span></td></tr>
+      <tr><td class="week-col">14</td><td>12</td><td>The full IEEE article: IMRaD for hardware research; writing the design, methodology, results, and discussion; benchmark comparison against commercial units and prior literature; impact and deployability analysis; limitations and future work; abstract and title refinement; similarity report, PDF eXpress, camera-ready submission <span class="badge new">Milestone</span> <span class="badge p2">Phase 2</span></td></tr>
+      <tr><td class="week-col">15</td><td>—</td><td>FINAL EXAMINATION (coverage: Weeks 11–14) <span class="badge mandated">Exam</span> · <strong>Final defense</strong> — live prototype demonstration, panel questioning, full article submission, and turnover of hardware, code, data, and documentation <span class="badge new">Milestone</span></td></tr>
+    </tbody>
+  </table>
+  <div class="callout gold"><span class="label">Design Note</span>The semester is engineered so that no week is idle. Weeks 1–4 produce the proposal, Weeks 6–8 convert its literature foundation into a submittable Phase 1 paper, and Weeks 9–14 turn the gap that paper identified into working hardware and a full article. Examination weeks 5, 10, and 15 double as the three defense checkpoints — proposal defense, design approval, and final defense — so assessment and progress advance together.</div>
+</section>
+
+<!-- ============ LEARNING PLAN ============ -->
+<section id="plan">
+  <h2>Learning Plan</h2>
+
+  <div class="period-banner">PRELIM PERIOD — IDEATION, DESIGN THINKING, AND THE RESEARCH PROPOSAL (Weeks 1–5)</div>
+  <table>
+    <thead><tr><th style="width:19%">Learning Outcomes</th><th style="width:24%">Topic</th><th style="width:13%">Method</th><th style="width:25%">Resources</th><th style="width:19%">Assessment</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Explain the engineering research process and the IEEE dissemination pathway; distinguish research from a mere design project (CO1)</td>
+        <td><strong>Unit 1 — The EE research landscape</strong>: problem formulation, research questions and objectives, the two-phase model, IEEE venues and Xplore indexing, authorship and publication ethics</td>
+        <td>Interactive lecture; anatomy-of-a-paper walkthrough; team formation</td>
+        <td>Mack, <em>How to Write a Good Scientific Paper</em>, Chs. 1–3; Zhang (2014) Ten Simple Rules; IEEE Author Center — Conferences; IEEE Code of Ethics; sample Xplore papers</td>
+        <td>Diagnostic assessment; recitation; paper-anatomy worksheet; registered teams of 3–4</td>
+      </tr>
+      <tr>
+        <td>Frame a real, observed problem from field evidence rather than from assumption (CO3)</td>
+        <td><strong>Unit 2 — Discover and Define</strong>: immersion, observation (POEMS), stakeholder interviews, 5 Whys, pain-point map, POV statements, <em>How Might We</em> questions</td>
+        <td>Design studio; structured field-immersion assignment; empathy-map and affinity-clustering workshop</td>
+        <td>d.school <em>Design Thinking Bootleg</em> (Empathize, Define); Design Council — The Double Diamond; IDEO Design Kit — Inspiration methods</td>
+        <td>Field immersion report (min. five stakeholder interviews); pain-point map; three POV statements</td>
+      </tr>
+      <tr>
+        <td>Generate a wide solution space and converge on one defensible and buildable concept (CO3, CO7)</td>
+        <td><strong>Unit 3 — Ideate and Screen</strong>: divergent ideation, SCAMPER, TRIZ contradictions, morphological matrix, biomimetic and analogical transfer; Pugh matrix; IMPACT-30 screen; buildability and availability gate</td>
+        <td>Rapid-ideation studio (100 ideas in 30 minutes); concept sketching; screening workshop with the Course Professor</td>
+        <td>d.school <em>Design Thinking Bootleg</em> (Ideate, Prototype); IDEO Design Kit — Ideation methods; TRIZ 40 Inventive Principles; MIT OCW 2.009; course Idea Bank and Innovation Vectors table</td>
+        <td>Ideation portfolio (≥ 40 raw ideas); Pugh matrix; IMPACT-30 scoresheet for top 3; component availability check with supplier links <span class="badge new">Milestone</span></td>
+      </tr>
+      <tr>
+        <td>Write a complete, defensible research project proposal with a documented novelty claim (CO1, CO3)</td>
+        <td><strong>Unit 4 — The research project proposal</strong>: title, background, problem statement, conceptual/block framework, scope, significance, methodology, Gantt chart, resource plan, novelty statement, prior-art search</td>
+        <td>Writing workshop; prior-art search clinic in IEEE Xplore and Scopus; consultation rounds</td>
+        <td>Mack, Chs. 4–9; Zhang (2014) Ten Simple Rules; NASA Systems Engineering Handbook, Secs. 4.1–4.2; RTU proposal template; IEEE Reference Guide</td>
+        <td>Full proposal document; prior-art search log; novelty statement (three claims); similarity report <span class="badge new">Milestone</span></td>
+      </tr>
+      <tr>
+        <td>Integrate Weeks 1–4 competencies; defend a research plan before a technical panel (CO1, CO3, CO6)</td>
+        <td><strong>Week 5 — Preliminary Examination</strong>; <em>proposal defense</em>; registration of the Phase 1 scientometric protocol and target IEEE venue</td>
+        <td>Written examination; 15-minute panel defense with 10-minute questioning; revision consultations</td>
+        <td>All Weeks 1–4 references; target-venue call for papers and author kit</td>
+        <td><strong>Preliminary Examination</strong>; proposal defense (rubric-scored); approved title and scope; registered Phase 1 protocol</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="period-banner">MIDTERM PERIOD — THE PHASE 1 SCIENTOMETRIC / REVIEW PAPER FOR IEEE XPLORE (Weeks 6–10)</div>
+  <table>
+    <thead><tr><th style="width:19%">Learning Outcomes</th><th style="width:24%">Topic</th><th style="width:13%">Method</th><th style="width:25%">Resources</th><th style="width:19%">Assessment</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Construct a reproducible, auditable bibliographic corpus and report screening transparently (CO2)</td>
+        <td><strong>Unit 5 — Scientometric methods and corpus construction</strong>: database selection and coverage differences, Boolean query design, field tags and filters, PRISMA 2020 flow, deduplication, author/affiliation disambiguation, keyword harmonization</td>
+        <td>Hands-on studio: live query building and export; PRISMA diagram workshop; data-cleaning clinic in R and Python</td>
+        <td>Page et al. (2021) PRISMA 2020; Passas (2024) Bibliometric Analysis: The Main Steps; Öztürk et al. (2024); Scopus and Web of Science help documentation</td>
+        <td>Registered query string with hit counts per database; PRISMA 2020 flow diagram; cleaned corpus file with codebook</td>
+      </tr>
+      <tr>
+        <td>Quantify a research field's structure and identify its research front (CO2)</td>
+        <td><strong>Unit 6 — Performance analysis and science mapping</strong>: growth rate, productivity and impact metrics, h/g-index, Bradford and Lotka laws; co-authorship, co-word, co-citation, bibliographic coupling; thematic map (centrality × density), thematic evolution, three-field plot</td>
+        <td>Hands-on studio in Biblioshiny/bibliometrix and VOSviewer; network-interpretation clinic; figure-craft critique</td>
+        <td>bibliometrix/Biblioshiny documentation; van Eck &amp; Waltman (2010) VOSviewer + VOSviewer Manual; Arruda et al. (2022); Passas (2024)</td>
+        <td>Analysis notebook with reproducible scripts; complete figure set (≥ 6 publication-grade figures); interpretation memo</td>
+      </tr>
+      <tr>
+        <td>Produce and submit a venue-compliant IEEE manuscript that ends in a defensible research gap (CO2, CO6)</td>
+        <td><strong>Unit 7 — Writing and submitting the Phase 1 paper</strong>: IEEE template mechanics, structuring a review vs. a scientometric article, results narration, gap statement and technology roadmap, internal peer review, similarity check, PDF eXpress, submission</td>
+        <td>Writing workshop; mock referee reports exchanged between teams; submission clinic</td>
+        <td>IEEE conference/journal author kit and template; IEEE Editorial Style Manual; IEEE Reference Guide; PDF eXpress guidance</td>
+        <td><strong>Phase 1 paper</strong> (rubric-scored); similarity report; PDF eXpress-approved PDF; screenshot proof of submission <span class="badge p1">Phase 1</span></td>
+      </tr>
+      <tr>
+        <td>Convert a literature-derived gap into engineering requirements and a buildable architecture (CO3, CO4, CO7)</td>
+        <td><strong>Unit 8 — Engineering design process for Phase 2</strong>: requirements elicitation and measurable specifications, functional decomposition, architecture and block diagrams, component and MCU selection, schematic and PCB planning, firmware architecture, V&amp;V plan, safety and standards review · <em>Phase 2 design colloquium</em></td>
+        <td>Design studio; component-selection clinic; peer design review; panel colloquium presentations</td>
+        <td>NASA Systems Engineering Handbook, Chs. 4–6; MIT OCW 15.783J; Kuphaldt, <em>Lessons in Electric Circuits</em>, Vols. I–III; Analog Devices — Sensor Signal Conditioning; PEC 2017 (applicable articles)</td>
+        <td>Requirements-and-specifications table; system architecture package; V&amp;V plan; design colloquium pitch (rubric-scored) <span class="badge new">Milestone</span></td>
+      </tr>
+      <tr>
+        <td>Integrate Weeks 6–9 competencies; commit to a procurable, schedule-feasible build plan (CO2, CO4, CO7)</td>
+        <td><strong>Week 10 — Midterm Examination</strong>; approved Phase 2 design document; finalized component list; procurement and fabrication schedule</td>
+        <td>Written examination; design-approval consultations; component review with the Course Professor</td>
+        <td>All Weeks 6–9 references; supplier catalogs and component datasheets</td>
+        <td><strong>Midterm Examination</strong>; approved design document; approved component list with second-source options; procurement plan</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="period-banner">FINAL PERIOD — PROTOTYPE EXECUTION, VALIDATION, AND THE FULL ARTICLE (Weeks 11–15)</div>
+  <table>
+    <thead><tr><th style="width:19%">Learning Outcomes</th><th style="width:24%">Topic</th><th style="width:13%">Method</th><th style="width:25%">Resources</th><th style="width:19%">Assessment</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Bring up hardware safely and correctly; document engineering work so it can be reproduced (CO4, CO7)</td>
+        <td><strong>Unit 9 — Build sprint 1 (bring-up)</strong>: power rails, regulation and protection; MCU toolchain and flashing; sensor interfacing and bus debugging (I²C/SPI/UART/ADC); signal conditioning, amplification, and anti-alias filtering; grounding and noise; logbook and version control</td>
+        <td>Guided build studio; bench-instrument clinic (DMM, oscilloscope, power supply, logic analyzer); troubleshooting drills</td>
+        <td>Kuphaldt, Vols. I–III &amp; VI; All About Circuits Textbook, Vols. 1–4; Fiore, <em>Operational Amplifiers and Linear ICs</em>; datasheets and application notes for the selected parts</td>
+        <td>Bring-up demonstration (subsystem-level); engineering logbook entries; repository with commit history</td>
+      </tr>
+      <tr>
+        <td>Integrate subsystems into a coherent, usable device or system (CO4, CO7)</td>
+        <td><strong>Unit 10 — Build sprint 2 (integration)</strong>: firmware state machines and sampling strategy, on-device processing (digital filtering, FFT, feature extraction, TinyML inference), connectivity (Wi-Fi/BLE/LoRa), companion app or dashboard, PCB and enclosure fabrication, power budgeting, human factors · <em>Critical design review</em></td>
+        <td>Guided build studio; integration clinic; structured peer critical design review</td>
+        <td>Fiore, <em>Embedded Controllers</em>; Smith, <em>Guide to DSP</em>, Chs. 8–15 (FFT and filters); LiteRT for Microcontrollers docs; ESP-IDF Programming Guide; KiCad documentation; framework documentation for the companion app</td>
+        <td>Integrated prototype (functional demonstration); CDR presentation and action-item log; updated component list against the as-built unit <span class="badge new">Milestone</span></td>
+      </tr>
+      <tr>
+        <td>Establish that the prototype measures or performs as claimed, with quantified uncertainty (CO5)</td>
+        <td><strong>Unit 11 — Calibration, validation, and testing</strong>: reference instruments and traceability, calibration curves and correction, paired-measurement design and sample size, MAE/RMSE/MAPE/R², Bland–Altman agreement, repeatability and drift, uncertainty budget, environmental and safety testing</td>
+        <td>Metrology studio; supervised validation runs against calibrated references; statistical analysis clinic</td>
+        <td>NIST/SEMATECH e-Handbook, Secs. 1–2; OpenIntro Statistics, Chs. 5–7; JCGM 100:2008 (GUM), Secs. 1–5; NIST TN 1297; Giavarina (2015) Bland–Altman; PEC 2017 safety provisions</td>
+        <td>Validation dataset (≥ 30 paired measurements per measurand); calibration report; results tables and figures <span class="badge new">Milestone</span></td>
+      </tr>
+      <tr>
+        <td>Report hardware research to IEEE full-article standard, with honest benchmarking and impact analysis (CO5, CO6)</td>
+        <td><strong>Unit 12 — The full IEEE article</strong>: IMRaD for hardware research; design and methodology sections; results and discussion; benchmark table against commercial units and prior work; impact, scalability, and sustainability analysis; limitations and future work; abstract and title craft; camera-ready processing</td>
+        <td>Writing workshop; benchmark-table clinic; mock referee reports; abstract-and-title surgery; submission clinic</td>
+        <td>Mack, Chs. 4–12; Zhang (2014) Ten Simple Rules; IEEE author kit, Editorial Style Manual, and Reference Guide; the team's own Phase 1 paper as the related-work spine</td>
+        <td>Camera-ready full article with similarity report and PDF eXpress-approved PDF; benchmark and performance tables <span class="badge p2">Phase 2</span></td>
+      </tr>
+      <tr>
+        <td>Integrate full-course competencies; defend the completed research before a panel (CO1–CO7)</td>
+        <td><strong>Week 15 — Final Examination</strong>; final defense with live prototype demonstration; article submission; project turnover</td>
+        <td>Written examination; 20-minute defense presentation, live demonstration, and 15-minute panel questioning</td>
+        <td>All references; team documentation package</td>
+        <td><strong>Final Examination</strong>; final defense (rubric-scored); submitted full article; turnover of hardware, source code, datasets, schematics, and documentation</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============ DESIGN THINKING ============ -->
+<section id="ideation">
+  <h2>Ideation Guidelines: Design Thinking for High-Impact EE Innovation</h2>
+  <p class="lead">The hardest part of this course is not building the device. It is choosing something worth building. These guidelines govern Weeks 2–3 and every concept brought to the Week 5 proposal defense.</p>
+
+  <h3>A. The Double Diamond, run as four studio moves</h3>
+  <table>
+    <thead><tr><th style="width:16%">Move</th><th style="width:12%">When</th><th>What the team actually does</th><th style="width:22%">Evidence produced</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Discover</strong><br><em>diverge</em></td><td>Week 2</td><td>Go where the problem lives — a barangay health station, a rice-drying yard, a distribution substation, a small machine shop, a fish pond, a school for the blind. Observe with the POEMS lens (People, Objects, Environments, Messages, Services). Interview at least five stakeholders. Record what people <em>do</em>, not only what they say. Apply 5 Whys to the top three irritants.</td><td>Field immersion report; photo and note log; pain-point map</td></tr>
+      <tr><td><strong>Define</strong><br><em>converge</em></td><td>Week 2</td><td>Compress the field evidence into a point-of-view statement: <em>“[User] needs a way to [need] because [surprising insight], but existing solutions [specific gap].”</em> Turn each POV into three <em>How Might We</em> questions pitched at the right altitude — narrow enough to build, wide enough to innovate.</td><td>Three POV statements; nine HMW questions</td></tr>
+      <tr><td><strong>Ideate</strong><br><em>diverge</em></td><td>Week 3</td><td>Quantity first, judgment later. Run 100 ideas in 30 minutes against the chosen HMW. Then force novelty with structured tools: SCAMPER, TRIZ contradiction resolution, a morphological matrix of function × means, analogical transfer from another discipline, and constraint flipping (“what if it had to fit in a shirt pocket?”, “what if it had to run for a year on one battery?”, “what if the user could not read?”).</td><td>Ideation portfolio (≥ 40 retained ideas); concept sketches</td></tr>
+      <tr><td><strong>Screen</strong><br><em>converge</em></td><td>Week 3</td><td>Score the shortlist on the IMPACT-30 screen below, run a Pugh matrix against the best existing solution as datum, and apply the buildability gate with a real component list, verified availability, and lead times. Kill anything that cannot survive both.</td><td>Pugh matrix; IMPACT-30 scoresheet; component availability check</td></tr>
+    </tbody>
+  </table>
+
+  <h3>B. Where the innovation actually lives — eight EE innovation vectors</h3>
+  <p>A project is innovative when it moves along at least one of these vectors in a way that can be demonstrated and measured. Teams must name their vector explicitly in the proposal.</p>
+  <table>
+    <thead><tr><th style="width:20%">Vector</th><th style="width:38%">The question it asks</th><th>Worked example</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Miniaturization</strong></td><td>Can a benchtop instrument become a pocket instrument without losing the measurement that matters?</td><td>Benchtop impedance analyzer → handheld impedance/LCR probe using an AD5933-class front end and an ESP32-S3</td></tr>
+      <tr><td><strong>Deconstruction</strong></td><td>Can a capability locked inside proprietary benchtop equipment be rebuilt from open, general-purpose components?</td><td>Three-phase power-quality analyzer → clamp-CT logger computing RMS, THD, sag/swell events with SD logging</td></tr>
+      <tr><td><strong>Sensor fusion</strong></td><td>Can two cheap sensors together outperform one expensive sensor?</td><td>MEMS accelerometer + motor current signature analysis for induction-motor bearing fault detection</td></tr>
+      <tr><td><strong>Edge intelligence</strong></td><td>What becomes possible when inference runs on the device instead of in the cloud?</td><td>TinyML classifier on an ESP32-S3 distinguishing normal, unbalanced, and misaligned machine states in real time</td></tr>
+      <tr><td><strong>Connectivity</strong></td><td>What becomes measurable where there is no internet, no grid, and no technician?</td><td>LoRa flood-stage and rainfall node network with solar power and an SMS/dashboard alert path for a barangay</td></tr>
+      <tr><td><strong>Accessibility</strong></td><td>Who is excluded by the current design, and what would include them?</td><td>Talking multimeter or tactile-feedback voltage detector for visually impaired electricians; sign-language glove</td></tr>
+      <tr><td><strong>Localization</strong></td><td>What fails specifically under Philippine conditions — brownouts, typhoons, humidity, salt air, PEC rules, informal wiring?</td><td>Brownout ride-through and sequence-aware automatic transfer switch with event logging for small clinics</td></tr>
+      <tr><td><strong>Sustainability</strong></td><td>Can waste become input — second-life cells, harvested energy, recovered e-waste?</td><td>Second-life 18650 cell grader: capacity, internal resistance, and self-discharge triage rig for salvaged packs</td></tr>
+    </tbody>
+  </table>
+
+  <h3>C. The IMPACT-30 concept screen</h3>
+  <p>Each shortlisted concept is scored 1–5 on six criteria for a maximum of 30 points. A concept must score <strong>at least 22/30</strong> to be brought to the proposal defense.</p>
+  <table>
+    <thead><tr><th style="width:8%" class="ctr">Letter</th><th style="width:22%">Criterion</th><th>Scored on</th><th style="width:10%" class="ctr">Max</th></tr></thead>
+    <tbody>
+      <tr><td class="ctr"><strong>I</strong></td><td>Innovativeness</td><td>Distance from prior art in IEEE Xplore and Scopus; a named innovation vector; a defensible novelty claim rather than a re-implementation</td><td class="ctr">5</td></tr>
+      <tr><td class="ctr"><strong>M</strong></td><td>Measurable impact</td><td>Who benefits, how many, and by how much; a stated baseline and a target improvement; alignment with a Sustainable Development Goal or a national development priority</td><td class="ctr">5</td></tr>
+      <tr><td class="ctr"><strong>P</strong></td><td>Prototypability</td><td>Can a working unit exist by Week 13 with the team's actual skills, the available lab equipment, and a six-week build window</td><td class="ctr">5</td></tr>
+      <tr><td class="ctr"><strong>A</strong></td><td>Applicability</td><td>A real deployment context with a named beneficiary, site, or partner; the result is usable in the field and not only on the bench</td><td class="ctr">5</td></tr>
+      <tr><td class="ctr"><strong>C</strong></td><td>Component availability</td><td>Every critical part obtainable in the Philippines or deliverable within two weeks; no single-source unobtainium; documented second-source options</td><td class="ctr">5</td></tr>
+      <tr><td class="ctr"><strong>T</strong></td><td>Testability</td><td>A calibrated reference instrument, an accepted standard, or a ground-truth dataset exists against which the claim can be validated in Week 13</td><td class="ctr">5</td></tr>
+      <tr class="unit-row"><td class="ctr">—</td><td>TOTAL</td><td>Minimum to proceed: 22 / 30, with no single criterion scored below 3</td><td class="ctr">30</td></tr>
+    </tbody>
+  </table>
+
+  <h3>D. Novelty check protocol (mandatory before the proposal defense)</h3>
+  <ol class="plain">
+    <li>Write the exact Boolean query used, with database, date of search, and field tags. Run it in <strong>IEEE Xplore</strong>, <strong>Scopus</strong>, and <strong>Google Scholar</strong>; record hit counts.</li>
+    <li>Read the ten most-cited and the ten most-recent results. Tabulate what each one measured, built, or achieved, and under what conditions.</li>
+    <li>State the gap in one sentence of the form: <em>“Existing work does X but has not yet done Y under condition Z.”</em></li>
+    <li>Write the <strong>novelty statement</strong> as exactly three claims — what is new in the <em>approach</em>, what is new in the <em>implementation</em>, and what is new in the <em>evidence</em> the team will produce.</li>
+    <li>If more than roughly thirty near-identical works already exist, the concept is not dead — but the team must differentiate along a named innovation vector and say so explicitly in the proposal.</li>
+  </ol>
+
+  <h3>E. Anti-patterns — concepts that will not be approved</h3>
+  <div class="callout red"><span class="label">Automatic Rejection</span>
+    <ul class="plain" style="margin-bottom:0">
+      <li>“IoT-based [anything] monitoring system” with a dashboard but no measurement validation against a reference and no research question.</li>
+      <li>Line-following robots, obstacle-avoiding cars, RFID attendance systems, and other exercises with no novelty vector and no measurable claim.</li>
+      <li>Straight re-implementations of a published project with no comparative baseline, no improvement claim, and no new evidence.</li>
+      <li>Concepts depending on parts with lead times beyond two weeks, or on a single unobtainable component with no second source.</li>
+      <li>Work at voltages, currents, RF power, laser classes, or chemical hazards beyond the laboratory's safety envelope and the team's certification.</li>
+      <li>Human-subject data collection without ethics clearance, or any handling of personal data outside the Data Privacy Act of 2012.</li>
+      <li>Simulation-only submissions where the proposal promised hardware. The prototype must physically exist and run at the Week 15 defense.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ IDEA BANK ============ -->
+<section id="ideabank">
+  <h2>Idea Bank: Simple to Build, High in Impact</h2>
+  <p>These are starting points for ideation, not a menu to pick from. Any adopted idea must be re-scoped through the Discover–Define moves so that the team owns a specific, locally-observed problem — and must still pass the novelty check and the IMPACT-30 screen.</p>
+
+  <table>
+    <thead><tr><th style="width:24%">Cluster</th><th>Candidate projects</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Portable instrumentation</strong><br><span class="sans" style="font-size:.8rem;color:var(--muted)">measure what is currently unmeasured</span></td>
+        <td>Clamp-CT power-quality and energy logger (RMS, PF, THD, sag/swell events) · handheld LCR/impedance probe · portable multi-parameter water-quality meter (pH, turbidity, TDS, temperature) · soil EC/moisture/NPK-proxy meter for smallholder farms · low-cost optical absorbance photometer using an AS7341-class spectral sensor · ultrasonic tank level and open-channel flow meter · portable insulation-resistance and continuity tester with logging</td></tr>
+      <tr><td><strong>Handheld and wearable devices</strong><br><span class="sans" style="font-size:.8rem;color:var(--muted)">put capability in a technician's or citizen's hand</span></td>
+        <td>Time-domain-reflectometry cable fault locator for building wiring · handheld gas-leak sniffer with BME688-class sensing and false-alarm rejection · talking multimeter and tactile live-line detector for visually impaired electricians · fall-detection and inactivity wearable for elderly residents · sign-language-to-speech glove with IMU and flex sensing · pocket accelerograph for earthquake shaking-intensity logging</td></tr>
+      <tr><td><strong>Edge AI and embedded intelligence</strong><br><span class="sans" style="font-size:.8rem;color:var(--muted)">the highest-innovation vector</span></td>
+        <td>TinyML induction-motor fault classifier from vibration and current signature · non-intrusive load monitoring (NILM) that disaggregates household appliances from a single meter point · on-device Filipino wake-word and voice-command module · camera-based PV panel soiling and hotspot screening · acoustic transformer-hum anomaly detector · vision-based counting for small production lines</td></tr>
+      <tr><td><strong>Power, energy, and grid</strong><br><span class="sans" style="font-size:.8rem;color:var(--muted)">the discipline's home ground</span></td>
+        <td>MPPT solar charge controller with telemetry and efficiency benchmarking · brownout ride-through automatic transfer switch with event forensics · second-life 18650 cell grader (capacity, ESR, self-discharge) · EV and e-trike charging load profiler · distribution-transformer loading and temperature monitor · household demand-response controller with tariff-aware scheduling</td></tr>
+      <tr><td><strong>Environment, disaster, and agriculture</strong><br><span class="sans" style="font-size:.8rem;color:var(--muted)">where connectivity is the innovation</span></td>
+        <td>Solar LoRa flood-stage and rainfall node with barangay alerting · aquaculture dissolved-oxygen monitor with automated aerator control · poultry-house ammonia and thermal comfort monitor · grain-moisture meter for rice drying yards · low-cost PM2.5 and noise mapping node validated against a reference monitor · automated nutrient-dosing hydroponics controller</td></tr>
+      <tr><td><strong>Biomedical and assistive</strong><br><span class="sans" style="font-size:.8rem;color:var(--muted)">clearance required before data collection</span></td>
+        <td>PPG/ECG front end validated against a clinical reference · IoT drip-infusion drop-rate and occlusion monitor · EMG-actuated single-degree prosthetic finger · UV-C dosimetry and exposure controller for clinic disinfection · nebulizer usage and adherence logger · low-cost phototherapy irradiance meter for neonatal units</td></tr>
+      <tr><td><strong>Companion applications</strong><br><span class="sans" style="font-size:.8rem;color:var(--muted)">the software half of a hardware claim</span></td>
+        <td>Mobile app for on-site logging, calibration, and report generation · offline-first dashboard with local storage and deferred sync · BLE provisioning and firmware-over-the-air update path · anomaly-alert service with SMS fallback where data coverage is poor · open dataset publication with a data dictionary and DOI</td></tr>
+    </tbody>
+  </table>
+  <div class="callout"><span class="label">Scoping Rule</span>One measurand, one claim, one validation. A device that measures four things badly loses to a device that measures one thing well and proves it against a calibrated reference. Breadth is not a substitute for evidence, and panels reward the paper that can be defended.</div>
+</section>
+
+<!-- ============ PHASE 1 ============ -->
+<section id="phase1">
+  <h2>Phase 1 — The Proposal and the IEEE Xplore Review / Scientometric Paper</h2>
+  <p>Phase 1 runs from Week 1 to Week 8 and produces two documents: the <strong>research project proposal</strong>, defended in Week 5, and the <strong>Phase 1 manuscript</strong> — a review or scientometric paper — submitted in Week 8 to an IEEE conference or journal whose proceedings are published in IEEE Xplore. The manuscript is not a side quest. It is the formal argument that the Phase 2 prototype is needed, and its concluding gap statement becomes the introduction of the Phase 2 article.</p>
+
+  <h3>A. The research project proposal (Weeks 1–5)</h3>
+  <table>
+    <thead><tr><th style="width:26%">Section</th><th>What it must contain</th></tr></thead>
+    <tbody>
+      <tr><td>Title and team</td><td>A specific, measurable title naming the artifact, the measurand or function, and the context. No “smart”, no “innovative”, no “IoT-based” as the load-bearing word.</td></tr>
+      <tr><td>Background and rationale</td><td>The observed problem with field evidence from the Discover phase; who is affected and at what scale; why the status quo is inadequate.</td></tr>
+      <tr><td>Statement of the problem</td><td>One general problem, three to five specific research questions that the work can actually answer within the semester.</td></tr>
+      <tr><td>Objectives</td><td>One general objective and specific objectives written as verifiable engineering outcomes with numbers attached (e.g. “achieve ≤ 5% MAPE against a calibrated reference across the 0–200 A range”).</td></tr>
+      <tr><td>Conceptual and block framework</td><td>Input–process–output diagram plus a system block diagram identifying every subsystem and its interface.</td></tr>
+      <tr><td>Novelty statement</td><td>The three claims from the novelty check protocol, each tied to specific cited prior art.</td></tr>
+      <tr><td>Scope and delimitation</td><td>What is measured, over what range, under what conditions; what is explicitly excluded and why.</td></tr>
+      <tr><td>Significance</td><td>Named beneficiaries — community, industry, agency, discipline — with the mechanism of benefit, not generic claims.</td></tr>
+      <tr><td>Methodology</td><td>Phase 1 scientometric protocol and Phase 2 design, fabrication, and validation plan, including the reference instrument to be used.</td></tr>
+      <tr><td>Timeline and resources</td><td>Week-by-week Gantt chart to Week 15; component list with suppliers, lead times, and second-source options.</td></tr>
+      <tr><td>References</td><td>Minimum 30 sources in IEEE style, at least 20 of them journal or conference papers from the last five years.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>B. The Phase 1 scientometric protocol (Weeks 6–8)</h3>
+  <p>Teams choose one of two manuscript types with the Course Professor's approval. Both are legitimate IEEE Xplore contributions; the scientometric route is recommended because it produces quantitative figures that are difficult to dispute and that directly justify Phase 2.</p>
+  <table>
+    <thead><tr><th style="width:24%">Manuscript type</th><th>Core method</th><th style="width:26%">Signature outputs</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Scientometric / bibliometric analysis</strong></td><td>Reproducible Boolean query on Scopus, Web of Science, and IEEE Xplore; PRISMA 2020 screening; performance analysis (annual growth, productivity, citation impact, h/g-index, Bradford scattering, Lotka productivity); science mapping (co-authorship, keyword co-occurrence, co-citation, bibliographic coupling, thematic map, thematic evolution, three-field plot) using bibliometrix/Biblioshiny, VOSviewer, and Python.</td><td>PRISMA flow diagram; annual scientific production curve; top sources, authors, institutions, and countries; keyword co-occurrence network; thematic map; thematic evolution; research-front table; quantified gap</td></tr>
+      <tr><td><strong>Systematic or state-of-the-art review</strong></td><td>PRISMA 2020 protocol with pre-registered inclusion and exclusion criteria; structured data extraction into a comparison matrix (method, sensing modality, accuracy, cost, TRL, validation approach); critical appraisal of evidence quality; synthesis by taxonomy rather than by paper.</td><td>PRISMA flow diagram; taxonomy figure; comparison matrix of ≥ 40 studies; accuracy-versus-cost scatter; evidence-quality assessment; research-gap and roadmap table</td></tr>
+    </tbody>
+  </table>
+
+  <h4>Non-negotiable methodological requirements</h4>
+  <ul class="plain">
+    <li><strong>Reproducibility.</strong> The exact query string, database, date of search, filters, and hit counts are reported verbatim in the methodology so any reader can regenerate the corpus.</li>
+    <li><strong>Corpus size.</strong> Minimum 150 records after screening for a scientometric paper; minimum 40 fully-read studies for a systematic review. Smaller corpora require written approval and a narrower, justified scope.</li>
+    <li><strong>PRISMA 2020.</strong> The identification–screening–eligibility–inclusion flow diagram is mandatory in both routes, with numbers at every stage and reasons for exclusion.</li>
+    <li><strong>Data hygiene.</strong> Deduplication across databases, author-name and affiliation disambiguation, and keyword harmonization are documented in a cleaning log.</li>
+    <li><strong>Figures earn their space.</strong> At least six publication-grade figures, each interpreted in the text. A network diagram with no interpretation is decoration, not evidence.</li>
+    <li><strong>The gap is the payload.</strong> The paper must close with a research-gap statement and a technology roadmap that names the Phase 2 prototype as the logical next step.</li>
+  </ul>
+
+  <h3>C. Submission pipeline (Week 8)</h3>
+  <ol class="plain">
+    <li>Select the approved target venue and download its author kit; confirm the page limit, template version, and whether the venue publishes to IEEE Xplore.</li>
+    <li>Format the manuscript in the official IEEE conference or journal template — double column, correct margins, embedded fonts, IEEE reference style.</li>
+    <li>Complete internal peer review: each team receives two mock referee reports from other teams and responds in writing.</li>
+    <li>Run the similarity check; the manuscript must be at or below the institutional threshold, with no single source exceeding the allowed share.</li>
+    <li>Generate a compliant PDF and clear it through <strong>IEEE PDF eXpress</strong>: PDF 1.4 or later, all fonts embedded or subset, no password or security settings, no bookmarks, links, crop marks, or timestamps.</li>
+    <li>Submit through the venue's system and archive the submission confirmation, paper ID, and a screenshot as proof of submission.</li>
+  </ol>
+  <div class="callout gold"><span class="label">Graded on Submission, Not Acceptance</span>Peer review runs on its own timetable, well past Week 15. Phase 1 is scored on methodological rigor, manuscript quality, template compliance, and documented proof of submission. Acceptance, when it comes, is celebrated — not graded.</div>
+</section>
+
+<!-- ============ PHASE 2 ============ -->
+<section id="phase2">
+  <h2>Phase 2 — Prototype Execution and the Full IEEE Article</h2>
+  <p>Phase 2 runs from Week 9 to Week 15. The gap quantified in Phase 1 becomes a requirements table; the requirements table becomes an architecture; the architecture becomes hardware; the hardware is calibrated and validated against a reference; and the whole chain is reported as a full IEEE article. Nothing in this phase is accepted on the strength of a claim alone — every specification must be traceable to a measurement.</p>
+
+  <h3>A. From gap to specification (Week 9)</h3>
+  <p>Each functional requirement is written as a measurable specification with a verification method. The requirements table is the contract against which the Week 15 panel evaluates the prototype.</p>
+  <table>
+    <thead><tr><th style="width:10%">ID</th><th style="width:30%">Requirement</th><th style="width:30%">Specification (measurable)</th><th>Verification method</th></tr></thead>
+    <tbody>
+      <tr><td>FR-01</td><td>The device shall measure the primary measurand across the operating range</td><td>0–200 A RMS, ≤ 5% MAPE, ≤ 2% repeatability (%CV)</td><td>30 paired measurements against a calibrated clamp meter, across the full range</td></tr>
+      <tr><td>FR-02</td><td>The device shall log and export measurements</td><td>1 Hz sampling, 30 days of storage, CSV export over BLE within 60 s</td><td>Timed transfer test with checksum verification</td></tr>
+      <tr><td>NFR-01</td><td>The device shall operate untethered in the field</td><td>≥ 72 h on one charge at nominal duty cycle</td><td>Continuous run-down test with logged battery voltage</td></tr>
+      <tr><td>NFR-02</td><td>The device shall be safe for its intended user</td><td>Compliant creepage and clearance, fused input, insulated enclosure, PEC-conformant installation practice</td><td>Design review against PEC 2017; dielectric and continuity checks</td></tr>
+      <tr><td>DR-01</td><td>The device shall be deployable by its intended user</td><td>Field setup by a non-specialist in ≤ 10 minutes using the supplied guide</td><td>Timed setup trial with three first-time users</td></tr>
+    </tbody>
+  </table>
+
+  <h3>B. Build sprints (Weeks 11–12)</h3>
+  <table>
+    <thead><tr><th style="width:16%">Sprint</th><th>Work</th><th style="width:26%">Exit criterion</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Sprint 1</strong><br>Week 11 — bring-up</td><td>Power rails verified and protected; MCU toolchain and flashing confirmed; each sensor exercised individually over its bus; signal conditioning and anti-alias filtering built and swept; grounding and noise floor characterized; raw data streaming to a terminal.</td><td>Every subsystem demonstrated in isolation, with oscilloscope or logic-analyzer evidence recorded in the logbook.</td></tr>
+      <tr><td><strong>Sprint 2</strong><br>Week 12 — integration</td><td>Firmware state machine and sampling strategy implemented; on-device processing (filtering, FFT, feature extraction, TinyML inference) running within timing budget; connectivity and companion app or dashboard operational; PCB and enclosure fabricated and populated; power budget measured against the specification; usability pass with a real user.</td><td>Integrated unit runs unattended for one hour, logging valid data, at the <strong>critical design review</strong>.</td></tr>
+    </tbody>
+  </table>
+  <p>Both sprints are governed by two documentation disciplines that are graded independently of the hardware. The <strong>engineering logbook</strong> records dated entries for every experiment, failure, measurement, and decision, with the reasoning preserved — including what did not work. The <strong>repository</strong> holds firmware, analysis scripts, schematics, PCB files, and mechanical drawings under version control, with a README that lets a stranger rebuild the device.</p>
+
+  <h3>C. Calibration and validation (Week 13)</h3>
+  <p>This is the week that separates a project from research. The prototype's claims are tested against something the panel can trust.</p>
+  <ul class="plain">
+    <li><strong>Reference and traceability.</strong> Name the reference instrument, its make and model, its accuracy class, and its calibration status. Where no instrument exists, name the accepted standard, reference method, or ground-truth dataset used instead.</li>
+    <li><strong>Calibration.</strong> Build the calibration curve across the operating range, fit and report the correction model, and state the residuals. Report before-and-after performance.</li>
+    <li><strong>Paired measurement design.</strong> Minimum 30 paired observations per measurand, spanning the full range rather than clustering at one convenient point, collected under stated environmental conditions.</li>
+    <li><strong>Accuracy and error.</strong> Report MAE, RMSE, MAPE, and R² with a scatter plot against the reference and a residual plot. Do not report a single average error and stop.</li>
+    <li><strong>Agreement.</strong> Produce a Bland–Altman plot with bias and 95% limits of agreement — correlation alone is not agreement, and panels will ask.</li>
+    <li><strong>Precision and stability.</strong> Report repeatability (%CV) from replicate runs, reproducibility across units where more than one was built, and warm-up and long-run drift.</li>
+    <li><strong>Uncertainty budget.</strong> Tabulate the dominant uncertainty contributors — reference, sensor, quantization, temperature, installation — and combine them into a stated expanded uncertainty.</li>
+    <li><strong>Robustness and safety.</strong> Report behavior at temperature and humidity extremes, under supply disturbance, and at input limits; document protection, fusing, and isolation.</li>
+    <li><strong>Honesty clause.</strong> Failed tests, out-of-spec ranges, and unresolved anomalies are reported, not hidden. A limitation stated plainly costs almost nothing at defense; a limitation discovered by the panel costs a great deal.</li>
+  </ul>
+
+  <h3>D. The full IEEE article (Week 14)</h3>
+  <table>
+    <thead><tr><th style="width:24%">Section</th><th>Content and evidence expected</th></tr></thead>
+    <tbody>
+      <tr><td>Title and abstract</td><td>Artifact, measurand, and headline performance number in fewer than 200 words. The abstract states what was built and how well it works.</td></tr>
+      <tr><td>Introduction</td><td>The problem and its scale, the gap carried over from the Phase 1 paper, the contribution stated as three explicit claims, and the paper's organization.</td></tr>
+      <tr><td>Related work</td><td>Compressed from the Phase 1 manuscript — properly self-cited — ending in a comparison table positioning this work against the closest prior art.</td></tr>
+      <tr><td>System design</td><td>Block diagram, schematic excerpts, component selection rationale, firmware architecture and flowchart, algorithm description, and the requirements-to-specification traceability table.</td></tr>
+      <tr><td>Methodology</td><td>Test setup with a photograph or diagram, reference instrument and its traceability, experimental design, sample sizes, environmental conditions, and the statistical analysis plan.</td></tr>
+      <tr><td>Results</td><td>Calibration curve, accuracy and error metrics, Bland–Altman agreement, repeatability and drift, uncertainty budget, power and endurance, and functional test outcomes — in tables and figures, each one interpreted.</td></tr>
+      <tr><td>Discussion</td><td>Benchmark against commercial units and against published work on performance; explain where the device wins, where it loses, and why; interpret practical significance for the intended user.</td></tr>
+      <tr><td>Impact analysis</td><td>Deployment scenario and readiness level, the scale of the population served, expected benefit measured against the stated baseline, and sustainability and end-of-life considerations.</td></tr>
+      <tr><td>Limitations and future work</td><td>Honest boundaries of the evidence and the specific next experiments — the seed of the next study.</td></tr>
+      <tr><td>Conclusion and references</td><td>Claims restated against the evidence actually produced; minimum 25 IEEE-style references; acknowledgment, ethics, and AI-use disclosure statements.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============ DEFENSE ============ -->
+<section id="defense">
+  <h2>Milestones and the Final Defense</h2>
+  <h3>Deliverable timeline</h3>
+  <ul class="timeline">
+    <li><span class="when">Week 2</span>Field immersion report — observation log, five stakeholder interviews, pain-point map, three POV statements.</li>
+    <li><span class="when">Week 3</span>Ideation portfolio and concept screen — ≥ 40 ideas, Pugh matrix, IMPACT-30 scoresheet for the top three, component availability check.</li>
+    <li><span class="when">Week 4</span>Research project proposal (full document) with novelty statement, prior-art search log, and Gantt chart.</li>
+    <li><span class="when">Week 5</span><strong>Proposal defense</strong> alongside the Preliminary Examination — approved title, approved scope, registered Phase 1 protocol and target IEEE venue.</li>
+    <li><span class="when">Week 6</span>Phase 1 corpus — registered query strings with hit counts, PRISMA 2020 flow diagram, cleaned dataset with codebook.</li>
+    <li><span class="when">Week 7</span>Phase 1 analysis — reproducible notebook, complete figure set (≥ 6 figures), interpretation memo.</li>
+    <li><span class="when">Week 8</span><strong>Phase 1 paper submitted</strong> — IEEE-format manuscript, mock referee responses, similarity report, PDF eXpress-approved PDF, proof of submission. <span class="badge p1">Phase 1</span></li>
+    <li><span class="when">Week 9</span><strong>Phase 2 design colloquium</strong> — requirements and specifications table, system architecture, V&amp;V plan, safety and standards review.</li>
+    <li><span class="when">Week 10</span>Approved Phase 2 design document and component procurement plan, alongside the Midterm Examination.</li>
+    <li><span class="when">Week 11</span>Bring-up demonstration — every subsystem working in isolation; logbook and repository in order.</li>
+    <li><span class="when">Week 12</span><strong>Critical design review</strong> — integrated prototype running unattended for one hour; action-item log; as-built component list reconciled against the approved design.</li>
+    <li><span class="when">Week 13</span>Validation package — calibration report, ≥ 30 paired measurements per measurand, error and agreement analysis, uncertainty budget.</li>
+    <li><span class="when">Week 14</span>Camera-ready full article — similarity report, PDF eXpress-approved PDF, benchmark and performance tables. <span class="badge p2">Phase 2</span></li>
+    <li><span class="when">Week 15</span><strong>Final defense</strong> alongside the Final Examination — live prototype demonstration, panel questioning, article submission, and full project turnover.</li>
+  </ul>
+
+  <h3>Final defense format (Week 15)</h3>
+  <ul class="plain">
+    <li><strong>Presentation — 20 minutes.</strong> Problem and evidence of its scale; the Phase 1 gap in figures; the design and the reasoning behind it; the validation results; the impact case; limitations and future work.</li>
+    <li><strong>Live demonstration — 10 minutes.</strong> The prototype is switched on in the room, takes real measurements, and shows results. A video is accepted only for hazardous, field-bound, or destructive tests, and must be declared in advance.</li>
+    <li><strong>Panel questioning — 15 minutes.</strong> Every team member answers. The panel probes the measurement chain, the validity of the reference, the honesty of the error analysis, and the safety of the design.</li>
+    <li><strong>Turnover.</strong> Hardware, firmware and analysis repository, raw and processed datasets, schematics and PCB files, engineering logbook, and both manuscripts are submitted as one documented package.</li>
+  </ul>
+  <div class="callout"><span class="label">Panel Composition</span>The defense panel comprises the Course Professor as chair and at least two faculty members or industry practitioners from the electrical, electronics, or computer engineering fields. A representative of the beneficiary community, agency, or company is invited whenever the project has an identified deployment partner.</div>
+</section>
+
+<!-- ============ COURSE MAP ============ -->
+<section id="map">
+  <h2>Course Map (Program Learning Outcomes)</h2>
+  <table>
+    <thead><tr><th>Program Outcomes</th><th style="width:110px;text-align:center">EE10</th></tr></thead>
+    <tbody>
+      <tr class="unit-row"><td colspan="2">A. INTELLECTUAL COMPETENCIES (Knowledge)</td></tr>
+      <tr><td>1. Apply knowledge of mathematics, science, and engineering to the solution of complex electrical engineering problems (PO1)</td><td class="ctr">P</td></tr>
+      <tr><td>2. Design and conduct experiments, as well as analyze and interpret data (PO2)</td><td class="ctr">P</td></tr>
+      <tr><td>3. Design a system, component, or process to meet desired needs within realistic constraints of cost, safety, manufacturability, and sustainability (PO3)</td><td class="ctr">P</td></tr>
+      <tr><td>4. Identify, formulate, and solve complex electrical engineering problems (PO5)</td><td class="ctr">P</td></tr>
+      <tr class="unit-row"><td colspan="2">B. PRACTICAL SKILLS</td></tr>
+      <tr><td>5. Function on multidisciplinary and multicultural teams (PO4)</td><td class="ctr">P</td></tr>
+      <tr><td>6. Communicate effectively in oral, written, graphical, and technical forms (PO7)</td><td class="ctr">P</td></tr>
+      <tr><td>7. Use the techniques, skills, and modern engineering tools necessary for electrical engineering practice (PO11)</td><td class="ctr">P</td></tr>
+      <tr><td>8. Apply engineering and management principles as a member and leader of a project team (PO12)</td><td class="ctr">P</td></tr>
+      <tr class="unit-row"><td colspan="2">C. PERSONAL AND CIVIC RESPONSIBILITIES (Values)</td></tr>
+      <tr><td>9. Understand professional, social, and ethical responsibility, including the IEEE Code of Ethics and Philippine regulatory practice (PO6)</td><td class="ctr">P</td></tr>
+      <tr><td>10. Understand the impact of engineering solutions in a societal, economic, environmental, and global context (PO8)</td><td class="ctr">P</td></tr>
+      <tr><td>11. Recognize the need for, and engage in, life-long learning and scholarly dissemination (PO9)</td><td class="ctr">P</td></tr>
+      <tr><td>12. Know contemporary issues relevant to electrical engineering practice and research (PO10)</td><td class="ctr">L</td></tr>
+    </tbody>
+  </table>
+  <p class="sans" style="font-size:.85rem;color:var(--muted)"><strong>Legend:</strong> L = Learned &nbsp;·&nbsp; P = Practiced &nbsp;·&nbsp; O = Opportunity to learn. &nbsp;CO–PO mapping: CO1→PO6, PO9 · CO2→PO2, PO9, PO10 · CO3→PO3, PO5, PO8 · CO4→PO1, PO3, PO11 · CO5→PO1–PO2, PO11 · CO6→PO7, PO9 · CO7→PO4, PO12.</p>
+</section>
+
+<!-- ============ GRADING ============ -->
+<section id="grading">
+  <h2>Course Requirements and Grading System</h2>
+  <table>
+    <thead><tr><th>Component</th><th style="width:140px;text-align:center">Weight</th></tr></thead>
+    <tbody>
+      <tr><td>Quizzes, recitation, and design-thinking studio outputs (field immersion, ideation portfolio, concept screen)</td><td class="ctr">15%</td></tr>
+      <tr><td>Engineering logbook, repository, build sprints, and technical reviews (bring-up demonstration, critical design review)</td><td class="ctr">20%</td></tr>
+      <tr><td>Major examinations — Preliminary (10%), Midterm (10%), Final (10%)</td><td class="ctr">30%</td></tr>
+      <tr><td><strong>Phase 1</strong> — proposal and defense (5%), scientometric/review paper and proof of submission (10%)</td><td class="ctr">15%</td></tr>
+      <tr><td><strong>Phase 2</strong> — prototype demonstration and validation (8%), full IEEE article (7%), final defense (5%)</td><td class="ctr">20%</td></tr>
+      <tr class="unit-row"><td>TOTAL</td><td class="ctr">100%</td></tr>
+    </tbody>
+  </table>
+  <p class="sans" style="font-size:.85rem;color:var(--muted)">Final course grades follow the RTU 1.00–5.00 grading scale (1.00 highest; 3.00 = 75% minimum passing; 4.00 conditional; 5.00 failing), subject to the current University Student Handbook. <strong>A student must pass both Phase 1 and Phase 2 to pass the course</strong>: a submitted, rubric-passing Phase 1 manuscript and a physically demonstrated, validated Phase 2 prototype are terminal requirements and cannot be compensated by high marks elsewhere.</p>
+
+  <h3>Individual accountability within teams</h3>
+  <p>Teams of three to four carry a shared team mark, adjusted per student by a <strong>contribution factor</strong> of 0.7 to 1.1 derived from three sources: the individual's traceable contributions in the repository and engineering logbook, confidential peer evaluations collected at Weeks 8 and 14, and the student's individual performance under panel questioning at the two defenses. A student who cannot explain the subsystem attributed to them does not receive credit for it.</p>
+</section>
+
+<!-- ============ RUBRICS ============ -->
+<section id="rubrics">
+  <h2>Assessment Rubrics</h2>
+
+  <h3>Phase 1 rubric — proposal and scientometric / review paper (100 points)</h3>
+  <table>
+    <thead><tr><th>Criterion</th><th style="width:90px;text-align:center">Points</th></tr></thead>
+    <tbody>
+      <tr><td>Problem formulation, rationale, and field evidence; clarity of research questions and objectives</td><td class="ctr">10</td></tr>
+      <tr><td>Search strategy and reproducibility — documented query strings, database coverage, PRISMA 2020 flow, inclusion and exclusion criteria, data cleaning log</td><td class="ctr">20</td></tr>
+      <tr><td>Performance analysis — production trends, productivity and impact metrics, source and author analysis, Bradford and Lotka assessments</td><td class="ctr">15</td></tr>
+      <tr><td>Science mapping or systematic synthesis — networks, thematic map and evolution, or taxonomy and comparison matrix, each correctly interpreted</td><td class="ctr">20</td></tr>
+      <tr><td>Research gap and technology roadmap — the argument that leads logically to the Phase 2 prototype</td><td class="ctr">15</td></tr>
+      <tr><td>IEEE template compliance, figure and table quality, referencing accuracy, similarity within threshold</td><td class="ctr">10</td></tr>
+      <tr><td>Submission readiness — PDF eXpress clearance, venue fit, complete proof of submission</td><td class="ctr">10</td></tr>
+      <tr class="unit-row"><td>TOTAL</td><td class="ctr">100</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Phase 2 rubric — prototype, article, and defense (100 points)</h3>
+  <table>
+    <thead><tr><th>Criterion</th><th style="width:90px;text-align:center">Points</th></tr></thead>
+    <tbody>
+      <tr><td>Requirements and specifications — measurable, traceable, and verified against the design</td><td class="ctr">10</td></tr>
+      <tr><td>Design innovation and engineering rigor — named innovation vector, architecture, schematics, firmware, algorithm quality, design decisions justified</td><td class="ctr">20</td></tr>
+      <tr><td>Prototype functionality and workmanship — live demonstration, reliability, integration quality, safety, and usability</td><td class="ctr">20</td></tr>
+      <tr><td>Validation and testing — calibration, paired-measurement design, error and agreement analysis, repeatability, uncertainty budget, honesty about failures</td><td class="ctr">15</td></tr>
+      <tr><td>Impact and deployability — benchmark against commercial alternatives, deployment readiness, scale of benefit against the stated baseline, societal and sustainability analysis</td><td class="ctr">10</td></tr>
+      <tr><td>Full article quality — IMRaD structure, results and discussion, benchmark table, limitations, IEEE compliance, similarity within threshold</td><td class="ctr">15</td></tr>
+      <tr><td>Oral defense — clarity of argument, quality of the demonstration, and depth of every member's responses to panel questioning</td><td class="ctr">10</td></tr>
+      <tr class="unit-row"><td>TOTAL</td><td class="ctr">100</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Performance descriptors (both rubrics)</h3>
+  <table>
+    <thead><tr><th style="width:18%">Band</th><th style="width:14%" class="ctr">Range</th><th>Descriptor</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Publishable</strong></td><td class="ctr">90–100</td><td>Methodologically sound, honestly reported, and genuinely novel along a named vector. Could survive external peer review with minor revision.</td></tr>
+      <tr><td><strong>Proficient</strong></td><td class="ctr">80–89</td><td>Complete and correct with minor methodological or reporting gaps. Claims are supported by the evidence presented.</td></tr>
+      <tr><td><strong>Developing</strong></td><td class="ctr">75–79</td><td>Requirements met but the evidence is thin, the validation is narrow, or the writing obscures the contribution.</td></tr>
+      <tr><td><strong>Not yet passing</strong></td><td class="ctr">below 75</td><td>Missing deliverable, unvalidated claims, unsupported conclusions, template non-compliance, or a prototype that does not function at the defense.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============ READINGS ============ -->
+<section id="readings">
+  <h2>Required Readings and Other Materials</h2>
+  <div class="callout green"><span class="label">Open Access by Design</span>Every reading below is <strong>free to access</strong> — open-access articles, open textbooks, government and standards-body publications, and official vendor documentation. No purchase, subscription, or paid textbook is required to complete this course. Each title links directly to its source; links were verified in August 2026. The small number of resources that require University library credentials are listed separately at the end and are clearly marked. <span class="badge free" style="margin-left:0">Free</span> marks openly readable sources; <span class="badge lib" style="margin-left:0">Library</span> marks subscription resources.</div>
+
+  <h3>A. Scientific writing, the research process, and publication ethics</h3>
+  <ul class="plain">
+    <li>Mack, C. A. (2018). <em>How to Write a Good Scientific Paper</em>. SPIE Press. — Full e-book, author-hosted with the publisher's permission. <a href="https://www.lithoguru.com/scientist/litho_papers/How%20to%20write%20a%20good%20scientific%20paper%20-%20Chris%20Mack.pdf" target="_blank" rel="noopener">Read the PDF</a> <span class="badge free">Free</span></li>
+    <li>Zhang, W. (2014). Ten simple rules for writing research papers. <em>PLOS Computational Biology, 10</em>(1), e1003453. <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003453" target="_blank" rel="noopener">Open access full text</a> <span class="badge free">Free</span></li>
+    <li>IEEE Author Center — Conferences: writing, structuring, and submitting a conference paper. <a href="https://conferences.ieeeauthorcenter.ieee.org/" target="_blank" rel="noopener">Author Center</a> · <a href="https://conferences.ieeeauthorcenter.ieee.org/write-your-paper/meet-ieee-xplore-requirements/" target="_blank" rel="noopener">Meet IEEE Xplore requirements</a> <span class="badge free">Free</span></li>
+    <li>IEEE Publication Services and Products Board, <em>Operations Manual</em> — Section 8 on authorship, plagiarism, and publication ethics. <a href="https://pspb.ieee.org/images/files/PSPB/opsmanual.pdf" target="_blank" rel="noopener">Read the PDF</a> <span class="badge free">Free</span></li>
+  </ul>
+
+  <h3>B. Design thinking and the engineering design process</h3>
+  <ul class="plain">
+    <li>Hasso Plattner Institute of Design at Stanford (d.school). <em>Design Thinking Bootleg</em> — the full method deck used for the Week 2–3 studios. <a href="https://dschool.stanford.edu/resources/design-thinking-bootleg" target="_blank" rel="noopener">Resource page</a> · <a href="https://dschool.sfo3.digitaloceanspaces.com/documents/dschool_bootleg_deck_2018_final_sm2-6.pdf" target="_blank" rel="noopener">Direct PDF</a> <span class="badge free">Free</span></li>
+    <li>Design Council (UK). <em>The Double Diamond: A universally accepted depiction of the design process</em>. <a href="https://www.designcouncil.org.uk/resources/the-double-diamond/" target="_blank" rel="noopener">Framework and guidance</a> <span class="badge free">Free</span></li>
+    <li>IDEO.org. <em>Design Kit — Methods</em>: inspiration, ideation, and implementation methods, including interviewing, immersion, and rapid prototyping. <a href="https://www.designkit.org/methods.html" target="_blank" rel="noopener">Method library</a> <span class="badge free">Free</span></li>
+    <li>Altshuller, G. <em>TRIZ 40 Inventive Principles</em> — the contradiction-resolution principles applied in the Week 3 ideation studio. <a href="https://www.triz40.com/aff_Principles_TRIZ.php" target="_blank" rel="noopener">Principle reference</a> <span class="badge free">Free</span></li>
+    <li>NASA (2016). <em>NASA Systems Engineering Handbook</em> (SP-2016-6105 Rev. 2) — requirements definition, technical specifications, and verification and validation. <a href="https://www.nasa.gov/wp-content/uploads/2018/09/nasa_systems_engineering_handbook_0.pdf" target="_blank" rel="noopener">Read the PDF</a> <span class="badge free">Free</span></li>
+    <li>MIT OpenCourseWare. <em>2.009 Product Engineering Process</em> (Fall 2021) and <em>15.783J Product Design and Development</em> (Spring 2006) — lecture materials on concept generation, selection, and design reviews. <a href="https://ocw.mit.edu/courses/2-009-product-engineering-process-fall-2021/" target="_blank" rel="noopener">2.009</a> · <a href="https://ocw.mit.edu/courses/15-783j-product-design-and-development-spring-2006/" target="_blank" rel="noopener">15.783J</a> <span class="badge free">Free</span></li>
+  </ul>
+
+  <h3>C. Scientometrics, bibliometrics, and systematic review (Phase 1)</h3>
+  <ul class="plain">
+    <li>Page, M. J., et al. (2021). The PRISMA 2020 statement: An updated guideline for reporting systematic reviews. <em>BMJ, 372</em>, n71. <a href="https://www.bmj.com/content/372/bmj.n71" target="_blank" rel="noopener">Open access full text</a> · <a href="https://www.prisma-statement.org/prisma-2020-checklist" target="_blank" rel="noopener">Official checklist and flow diagram</a> <span class="badge free">Free</span></li>
+    <li>Passas, I. (2024). Bibliometric analysis: The main steps. <em>Encyclopedia, 4</em>(2), 1014–1025. — Step-by-step protocol covering database selection, cleaning, performance analysis, and science mapping. <a href="https://www.mdpi.com/2673-8392/4/2/65" target="_blank" rel="noopener">Open access full text</a> <span class="badge free">Free</span></li>
+    <li>Öztürk, O., Kocaman, R., &amp; Kanbach, D. K. (2024). How to design bibliometric research: An overview and a framework proposal. <em>Review of Managerial Science, 18</em>, 3333–3361. <a href="https://link.springer.com/article/10.1007/s11846-024-00738-0" target="_blank" rel="noopener">Open access full text</a> <span class="badge free">Free</span></li>
+    <li>van Eck, N. J., &amp; Waltman, L. (2010). Software survey: VOSviewer, a computer program for bibliometric mapping. <em>Scientometrics, 84</em>(2), 523–538. <a href="https://link.springer.com/article/10.1007/s11192-009-0146-3" target="_blank" rel="noopener">Open access full text</a> <span class="badge free">Free</span></li>
+    <li>Arruda, H., Silva, E. R., Lessa, M., Proença, D., &amp; Bartholo, R. (2022). VOSviewer and Bibliometrix. <em>Journal of the Medical Library Association, 110</em>(3), 392–395. — Practical comparison of the two tools used in this course. <a href="https://jmla.pitt.edu/ojs/jmla/article/view/1434" target="_blank" rel="noopener">Open access full text</a> <span class="badge free">Free</span></li>
+    <li>Aria, M., &amp; Cuccurullo, C. <em>bibliometrix &amp; Biblioshiny</em> — official documentation, vignettes, and worked science-mapping walkthroughs. <a href="https://www.bibliometrix.org/" target="_blank" rel="noopener">bibliometrix.org</a> · <a href="https://www.bibliometrix.org/vignettes/Introduction_to_bibliometrix.html" target="_blank" rel="noopener">Introduction vignette</a> · <a href="https://www.bibliometrix.org/biblioshiny/" target="_blank" rel="noopener">Biblioshiny</a> <span class="badge free">Free</span></li>
+    <li>Centre for Science and Technology Studies. <em>VOSviewer Manual</em> (v1.6.21). <a href="https://www.vosviewer.com/documentation/Manual_VOSviewer_1.6.21.pdf" target="_blank" rel="noopener">Read the PDF</a> · <a href="https://www.vosviewer.com/getting-started" target="_blank" rel="noopener">Getting started</a> <span class="badge free">Free</span></li>
+    <li>DORA — <em>San Francisco Declaration on Research Assessment</em>: the responsible use of citation and journal metrics. <a href="https://sfdora.org/read/" target="_blank" rel="noopener">Read the declaration</a> <span class="badge free">Free</span></li>
+  </ul>
+
+  <h3>D. Electronics, embedded systems, and signal processing (Phase 2)</h3>
+  <ul class="plain">
+    <li>Kuphaldt, T. R. <em>Lessons in Electric Circuits</em>, Volumes I–VI (DC, AC, Semiconductors, Digital, Reference, Experiments). Open textbook. <a href="http://www.ibiblio.org/kuphaldt/electricCircuits/" target="_blank" rel="noopener">Read online or download</a> <span class="badge free">Free</span></li>
+    <li>All About Circuits. <em>Textbook</em>, Volumes 1–8. <a href="https://www.allaboutcircuits.com/textbook/" target="_blank" rel="noopener">Read online</a> <span class="badge free">Free</span></li>
+    <li>Fiore, J. M. Open textbook series — <em>Operational Amplifiers and Linear Integrated Circuits</em>, <em>Semiconductor Devices</em>, <em>Embedded Controllers Using C and Arduino</em>, and companion laboratory manuals. <a href="https://www2.mvcc.edu/users/faculty/jfiore/freebooks.html" target="_blank" rel="noopener">Download the PDFs</a> <span class="badge free">Free</span></li>
+    <li>Smith, S. W. (1997). <em>The Scientist and Engineer's Guide to Digital Signal Processing</em>. — Filtering, the FFT, and spectral analysis for the Week 12 on-device processing work. <a href="https://www.dspguide.com/" target="_blank" rel="noopener">Read online</a> <span class="badge free">Free</span></li>
+    <li>Analog Devices. <em>Practical Design Techniques for Sensor Signal Conditioning</em> — amplification, bridge circuits, noise, and analog front ends. <a href="https://www.analog.com/en/resources/technical-books/practical-design-techniques-sensor-signal-conditioning.html" target="_blank" rel="noopener">Download by chapter</a> <span class="badge free">Free</span></li>
+    <li>Analog Devices. <em>Op Amp Applications Handbook</em> and <em>The Data Conversion Handbook</em> — amplifier selection, ADC/DAC architecture, sampling, and quantization error. <a href="https://www.analog.com/en/resources/technical-books/op-amp-applications-handbook.html" target="_blank" rel="noopener">Op Amp Applications</a> · <a href="https://www.analog.com/en/resources/technical-books/data-conversion-handbook.html" target="_blank" rel="noopener">Data Conversion</a> <span class="badge free">Free</span></li>
+    <li>Espressif Systems. <em>ESP-IDF Programming Guide</em> — peripherals, RTOS tasks, power management, and Wi-Fi/BLE. <a href="https://docs.espressif.com/projects/esp-idf/en/stable/esp32/index.html" target="_blank" rel="noopener">Official documentation</a> <span class="badge free">Free</span></li>
+    <li>Google. <em>LiteRT for Microcontrollers</em> (formerly TensorFlow Lite Micro) — on-device inference for the edge-intelligence projects. <a href="https://developers.google.com/edge/litert/microcontrollers/overview" target="_blank" rel="noopener">Official documentation</a> <span class="badge free">Free</span></li>
+    <li>KiCad. <em>Official documentation</em> — schematic capture, PCB layout, design rule checking, and fabrication outputs. <a href="https://docs.kicad.org/" target="_blank" rel="noopener">Documentation</a> <span class="badge free">Free</span></li>
+  </ul>
+
+  <h3>E. Measurement, uncertainty, and experimental statistics (Week 13)</h3>
+  <ul class="plain">
+    <li>NIST/SEMATECH. <em>e-Handbook of Statistical Methods</em> — measurement process characterization, calibration, gauge studies, and design of experiments. <a href="https://www.itl.nist.gov/div898/handbook/" target="_blank" rel="noopener">Read online</a> <span class="badge free">Free</span></li>
+    <li>JCGM (2008). <em>JCGM 100:2008 — Evaluation of Measurement Data: Guide to the Expression of Uncertainty in Measurement (GUM)</em>. BIPM. <a href="https://www.bipm.org/documents/20126/2071204/JCGM_100_2008_E.pdf" target="_blank" rel="noopener">Read the PDF</a> <span class="badge free">Free</span></li>
+    <li>Taylor, B. N., &amp; Kuyatt, C. E. (1994). <em>Guidelines for Evaluating and Expressing the Uncertainty of NIST Measurement Results</em> (NIST Technical Note 1297). <a href="https://nvlpubs.nist.gov/nistpubs/Legacy/TN/nbstechnicalnote1297.pdf" target="_blank" rel="noopener">Read the PDF</a> <span class="badge free">Free</span></li>
+    <li>Giavarina, D. (2015). Understanding Bland Altman analysis. <em>Biochemia Medica, 25</em>(2), 141–151. — The method-agreement analysis required in the Week 13 validation package. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4470095/" target="_blank" rel="noopener">Open access full text</a> <span class="badge free">Free</span></li>
+    <li>Çetinkaya-Rundel, M., &amp; Hardin, J. <em>OpenIntro Statistics</em> (4th ed.). — Estimation, inference, and regression for the validation analysis. <a href="https://www.openintro.org/book/os/" target="_blank" rel="noopener">Download the PDF</a> <span class="badge free">Free</span></li>
+  </ul>
+
+  <h3>F. Standards, ethics, and Philippine regulation</h3>
+  <ul class="plain">
+    <li>IEEE. <em>Code of Ethics</em>. <a href="https://www.ieee.org/about/corporate/governance/p7-8" target="_blank" rel="noopener">Read the Code</a> <span class="badge free">Free</span></li>
+    <li>IEEE. <em>Conference paper templates</em> (Word and LaTeX) and authoring tools. <a href="https://conferences.ieeeauthorcenter.ieee.org/write-your-paper/authoring-tools-and-templates/" target="_blank" rel="noopener">Author Center templates</a> · <a href="https://www.ieee.org/conferences/publishing/templates.html" target="_blank" rel="noopener">IEEE templates page</a> <span class="badge free">Free</span></li>
+    <li>IEEE. <em>Editorial Style Manual for Authors</em> and <em>Reference Guide</em>. <a href="https://journals.ieeeauthorcenter.ieee.org/wp-content/uploads/sites/7/IEEE-Editorial-Style-Manual-for-Authors.pdf" target="_blank" rel="noopener">Style Manual PDF</a> · <a href="https://journals.ieeeauthorcenter.ieee.org/wp-content/uploads/IEEE-Reference-Guide.pdf" target="_blank" rel="noopener">Reference Guide PDF</a> <span class="badge free">Free</span></li>
+    <li>IEEE. <em>PDF eXpress</em> — camera-ready PDF validation for the Week 8 and Week 14 submissions. <a href="https://ieee-pdf-express.org/" target="_blank" rel="noopener">ieee-pdf-express.org</a> — no charge, but requires a free account and the conference ID issued by the target venue. <span class="badge free">Free</span></li>
+    <li>Republic Act No. 7920 — <em>New Electrical Engineering Law</em> (1995), the governing law for electrical engineering practice in the Philippines. <a href="https://www.officialgazette.gov.ph/1995/02/24/republic-act-no-7920/" target="_blank" rel="noopener">Official Gazette full text</a> <span class="badge free">Free</span></li>
+    <li>Republic Act No. 10173 — <em>Data Privacy Act of 2012</em>, and its Implementing Rules and Regulations (2016). <a href="https://www.officialgazette.gov.ph/2012/08/15/republic-act-no-10173/" target="_blank" rel="noopener">RA 10173</a> · <a href="https://www.officialgazette.gov.ph/2016/08/25/implementing-rules-and-regulations-of-republic-act-no-10173/" target="_blank" rel="noopener">IRR</a> · <a href="https://privacy.gov.ph/" target="_blank" rel="noopener">National Privacy Commission</a> <span class="badge free">Free</span></li>
+  </ul>
+
+  <h3>G. Software toolchain (all free or free-tier)</h3>
+  <ul class="plain">
+    <li><strong>Bibliometric analysis:</strong> <a href="https://www.r-project.org/" target="_blank" rel="noopener">R</a> with <a href="https://www.bibliometrix.org/" target="_blank" rel="noopener">bibliometrix/Biblioshiny</a>; <a href="https://www.vosviewer.com/" target="_blank" rel="noopener">VOSviewer</a>; <a href="https://www.python.org/" target="_blank" rel="noopener">Python</a> with <a href="https://pandas.pydata.org/docs/" target="_blank" rel="noopener">pandas</a>, <a href="https://matplotlib.org/stable/" target="_blank" rel="noopener">Matplotlib</a>, and <a href="https://docs.scipy.org/doc/scipy/" target="_blank" rel="noopener">SciPy</a>; <a href="https://colab.research.google.com/" target="_blank" rel="noopener">Google Colab</a> for cloud notebooks.</li>
+    <li><strong>Hardware and firmware:</strong> <a href="https://docs.kicad.org/" target="_blank" rel="noopener">KiCad</a>; <a href="https://www.arduino.cc/en/software" target="_blank" rel="noopener">Arduino IDE</a>; <a href="https://platformio.org/" target="_blank" rel="noopener">PlatformIO</a>; <a href="https://docs.espressif.com/projects/esp-idf/en/stable/esp32/index.html" target="_blank" rel="noopener">ESP-IDF</a>; <a href="https://www.analog.com/en/resources/design-tools-and-calculators/ltspice-simulator.html" target="_blank" rel="noopener">LTspice</a>.</li>
+    <li><strong>Documentation and writing:</strong> <a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a> and <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>; <a href="https://www.zotero.org/" target="_blank" rel="noopener">Zotero</a>; <a href="https://www.overleaf.com/gallery/tagged/ieee-official" target="_blank" rel="noopener">Overleaf — official IEEE templates</a>.</li>
+  </ul>
+
+  <h3>H. Course-provided materials</h3>
+  <ul class="plain">
+    <li>Templates: research project proposal; novelty statement; IMPACT-30 scoresheet; Pugh matrix; component and sourcing worksheet; requirements-and-specifications table; V&amp;V plan; engineering logbook; calibration report; mock referee report; submission checklist.</li>
+    <li>Laboratory access: digital multimeters, oscilloscopes, function generators, bench power supplies, logic analyzers, LCR meter, clamp meters, soldering and rework stations, 3D printer, and the calibrated reference instruments used for the Week 13 validation.</li>
+  </ul>
+
+  <h3>I. Resources requiring University library access</h3>
+  <ul class="plain">
+    <li><a href="https://ieeexplore.ieee.org/" target="_blank" rel="noopener">IEEE Xplore Digital Library</a> — abstracts and metadata are open; full text requires the University subscription. <span class="badge lib">Library</span></li>
+    <li><a href="https://www.scopus.com/" target="_blank" rel="noopener">Scopus</a> and <a href="https://www.webofscience.com/" target="_blank" rel="noopener">Web of Science</a> — the Phase 1 corpus databases, accessed through RTU library credentials. <span class="badge lib">Library</span></li>
+    <li><em>Philippine Electrical Code, Part 1</em> (2017 ed.), Institute of Integrated Electrical Engineers of the Philippines — a copyrighted code available for purchase or through the College reference collection. <a href="https://iiee.org.ph/" target="_blank" rel="noopener">IIEE</a> <span class="badge lib">Library</span></li>
+  </ul>
+  <div class="callout gold"><span class="label">Open-Access Alternatives First</span>Where a team needs a paywalled source for the Phase 1 corpus, check for a legal open-access version through the publisher's own repository, the author's institutional repository, or the journal's open archive before requesting library assistance. Cite the version of record in the manuscript regardless of which copy was read, and never use pirated repositories.</div>
+</section>
+
+<!-- ============ POLICIES ============ -->
+<section id="policies">
+  <h2>Course Policies</h2>
+
+  <h3>Attendance, Studio Work, and Examinations</h3>
+  <p>Attendance and participation follow the RTU Student Handbook. Studio sessions, build sprints, and technical reviews are conducted within class hours; teams are expected to schedule additional laboratory time for fabrication and validation. The Preliminary, Midterm, and Final Examinations follow the RTU academic calendar, and special examinations are governed by University policy. <strong>Milestone deadlines are firm.</strong> Each week's deliverable is the input to the next week's work, and the Week 8 and Week 14 submission windows are governed by external venue timelines that the course cannot move. Late milestone submissions are penalized 10% per calendar day, to a maximum of three days, after which the deliverable is scored zero.</p>
+
+  <h3>Laboratory and Electrical Safety</h3>
+  <p>No student works alone on energized equipment. Work above 50 V AC or 120 V DC requires the Course Professor's written clearance and direct supervision, with appropriate personal protective equipment, lockout–tagout discipline, and a documented risk assessment filed before the first energized test. Battery charging, lithium cell handling, soldering, 3D printing, and any use of lasers or compressed gas follow the laboratory's standard operating procedures. Every design is reviewed against the Philippine Electrical Code for creepage and clearance, conductor sizing, overcurrent protection, grounding, and enclosure integrity before field testing. Unsafe work is stopped and does not earn credit.</p>
+
+  <h3>Academic Integrity and Responsible Use of AI Tools</h3>
+  <p>All manuscripts pass through similarity checking before submission. Plagiarism, data fabrication, falsification, image manipulation, and undisclosed reuse of another team's hardware, code, or results result in a failing mark for the requirement and referral under institutional policy. <strong>Fabricated measurement data is treated as the most serious offense in this course</strong> — the entire value of Phase 2 rests on the claim that the reported numbers came from the reported instrument on the reported day. Generative AI may be used for language editing, code scaffolding, and literature triage, but every such use is disclosed in the manuscript's AI-use statement, and AI systems are never listed as authors, consistent with IEEE authorship policy. AI-generated text presented as the team's own analysis, and AI-generated citations that do not exist, are treated as academic dishonesty.</p>
+
+  <h3>Research Ethics and Data Privacy</h3>
+  <p>Studies involving human participants — including usability testing, physiological measurement, interviews, and survey data — require clearance from the institutional research ethics committee <strong>before</strong> data collection begins, with informed consent documented. Personal data is collected, stored, and processed in accordance with the Data Privacy Act of 2012, with anonymization, minimization, and secure storage as defaults. Field work in communities requires the written consent of the barangay or partner organization. Datasets published alongside either manuscript are stripped of identifiers and accompanied by a data dictionary.</p>
+
+  <h3>Intellectual Property and Project Turnover</h3>
+  <p>Intellectual property arising from the project is governed by the University's IP policy. Teams are encouraged to disclose patentable outcomes to the University's technology transfer office before public disclosure; where a disclosure is filed, the Course Professor will advise on the timing of manuscript submission. Hardware purchased with team funds remains with the team after turnover, but the prototype, source code, schematics, datasets, and documentation are deposited with the University for archival, verification, and continuation by future cohorts. Authorship on both manuscripts follows IEEE criteria and is agreed in writing at Week 5, then reconfirmed at Week 14.</p>
+
+  <h3>Consultation and Mentoring</h3>
+  <p>Each team is entitled to a weekly consultation slot with the Course Professor, <strong>Dr. Ryan Manuel D. Guido</strong>, throughout the semester, with additional consultation windows during the Week 4–5 proposal period, the Week 7–8 submission push, and the Week 13–14 validation and writing period. Teams bring their engineering logbook and a written agenda to every consultation. Between consultations, teams are expected to resolve routine technical issues through datasheets, application notes, and their own experiments — the logbook of what was tried and what failed is itself a graded artifact.</p>
+</section>
+
+</main>
+
+<footer>
+  Electrical Engineering Research Project (EE10) · Rizal Technological University · 15-week outcomes-based syllabus, First Semester A.Y. 2026–2027 · Phase 1: IEEE Xplore review/scientometric paper · Phase 2: prototype and full article · Course Professor: Dr. Ryan Manuel D. Guido
+</footer>
+
+<script>
+/* Smooth in-page navigation that works inside sandboxed preview frames */
+(function(){
+  function go(e){
+    var href=this.getAttribute('href');
+    if(!href||href.charAt(0)!=='#')return;
+    var el=document.getElementById(href.slice(1));
+    if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'});
+      if(history&&history.replaceState){history.replaceState(null,'',href);}}
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',go);});
+})();
+</script>
+</body>
+</html>
