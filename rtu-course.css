@@ -1,0 +1,126 @@
+/* ==========================================================================
+   RTU Course Theme  —  EE10 Electrical Engineering Research Project
+   Rizal Technological University · Cities of Mandaluyong and Pasig
+   Course Professor: Dr. Ryan Manuel D. Guido
+   --------------------------------------------------------------------------
+   Shared stylesheet for index.html and units/*.html.
+   syllabus.html intentionally carries its own inline copy of the base theme
+   so that it renders correctly when opened, emailed, or printed on its own.
+   If you change a colour or type rule here, mirror it in syllabus.html.
+   ========================================================================== */
+
+  :root{
+    --navy:#1a2f5a; --navy-dark:#12213f; --gold:#c9a227; --accent:#2e6da4;
+    --new:#0e7c4a; --upd:#b3541e; --ink:#26303b; --muted:#5c6b7a;
+    --line:#d8dee6; --bg:#f4f6f9; --card:#ffffff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:Georgia,'Times New Roman',serif;color:var(--ink);background:var(--bg);line-height:1.65;}
+  .sans{font-family:'Segoe UI',Arial,Helvetica,sans-serif;}
+
+  header.masthead{background:linear-gradient(135deg,var(--navy-dark),var(--navy) 60%,#24457e);color:#fff;padding:42px 24px 34px;text-align:center;}
+  header.masthead .kicker{font-family:'Segoe UI',Arial,sans-serif;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:#c7d3e8;}
+  header.masthead h1{font-size:1.9rem;margin:.45em auto .25em;max-width:900px;letter-spacing:.01em;}
+  header.masthead .subtitle{font-family:'Segoe UI',Arial,sans-serif;color:#dbe4f3;font-size:.92rem;}
+  header.masthead .rule{width:90px;height:3px;background:var(--gold);margin:16px auto 0;border-radius:2px;}
+
+  nav{position:sticky;top:0;z-index:50;background:var(--navy-dark);box-shadow:0 2px 8px rgba(0,0,0,.25);}
+  nav ul{display:flex;flex-wrap:wrap;justify-content:center;list-style:none;}
+  nav a{display:block;padding:10px 13px;color:#e7edf7;text-decoration:none;font-family:'Segoe UI',Arial,sans-serif;font-size:.8rem;letter-spacing:.03em;}
+  nav a:hover{background:var(--navy);color:var(--gold);}
+
+  main{max-width:980px;margin:0 auto;padding:34px 20px 70px;}
+  section{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:30px 36px;margin-bottom:28px;box-shadow:0 1px 4px rgba(20,35,60,.06);scroll-margin-top:64px}
+  h2{font-family:'Segoe UI',Arial,sans-serif;color:var(--navy);font-size:1.3rem;border-bottom:3px solid var(--gold);padding-bottom:8px;margin-bottom:18px;}
+  h3{font-family:'Segoe UI',Arial,sans-serif;color:var(--accent);font-size:1.06rem;margin:24px 0 10px;}
+  h4{font-family:'Segoe UI',Arial,sans-serif;color:var(--navy);font-size:.95rem;margin:16px 0 6px;}
+  p{margin-bottom:13px;text-align:justify;}
+  ul.plain{margin:0 0 13px 24px;}
+  ul.plain li{margin-bottom:6px;}
+  ol.plain{margin:0 0 13px 26px;}
+  ol.plain li{margin-bottom:6px;}
+
+  .lead{font-size:1.06rem;color:#33404e;}
+  .callout{background:#eef3fa;border-left:4px solid var(--accent);padding:14px 18px;border-radius:0 6px 6px 0;margin:16px 0;font-size:.95rem;}
+  .callout.gold{background:#faf6e9;border-left-color:var(--gold);}
+  .callout.green{background:#f2f7ee;border-left-color:var(--new);}
+  .callout.red{background:#fdf1f1;border-left-color:#a52a2a;}
+  .callout .label{display:block;font-family:'Segoe UI',Arial,sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);margin-bottom:4px;}
+
+  .info-grid{display:grid;grid-template-columns:200px 1fr;gap:8px 18px;font-size:.98rem;}
+  .info-grid dt{font-family:'Segoe UI',Arial,sans-serif;font-weight:600;color:var(--navy);}
+  .info-grid dd{margin:0;}
+
+  .badge{display:inline-block;font-family:'Segoe UI',Arial,sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.08em;padding:2px 8px;border-radius:10px;vertical-align:middle;text-transform:uppercase;margin-left:6px;}
+  .badge.new{background:#e2f4ea;color:var(--new);border:1px solid #9fd4b6;}
+  .badge.updated{background:#fbeadd;color:var(--upd);border:1px solid #e2b28c;}
+  .badge.mandated{background:#fde8e8;color:#a52a2a;border:1px solid #e8a8a8;}
+  .badge.p1{background:#e6eefb;color:#1c4f9c;border:1px solid #9db8e4;}
+  .badge.p2{background:#efe7f7;color:#5b2f8f;border:1px solid #c1a8dd;}
+
+  table{width:100%;border-collapse:collapse;font-size:.9rem;margin:14px 0 6px;}
+  th{background:var(--navy);color:#fff;font-family:'Segoe UI',Arial,sans-serif;font-weight:600;padding:9px 12px;text-align:left;}
+  td{border:1px solid var(--line);padding:9px 12px;vertical-align:top;background:#fff;}
+  tr:nth-child(even) td{background:#f7f9fc;}
+  .unit-row td{background:#e9eef6 !important;color:var(--navy);font-family:'Segoe UI',Arial,sans-serif;font-weight:700;letter-spacing:.04em;font-size:.85rem;}
+  .week-col{width:78px;white-space:nowrap;font-weight:600;color:var(--navy);}
+  .period-banner{background:linear-gradient(90deg,var(--navy),#2c4d88);color:#fff;font-family:'Segoe UI',Arial,sans-serif;font-weight:600;padding:10px 16px;border-radius:6px;margin:24px 0 4px;letter-spacing:.04em;font-size:.95rem;}
+
+  .legend{display:flex;gap:14px;flex-wrap:wrap;margin:10px 0 4px;font-family:'Segoe UI',Arial,sans-serif;font-size:.8rem;color:var(--muted);align-items:center;}
+
+  .timeline{list-style:none;margin:14px 0;padding-left:0;}
+  .timeline li{position:relative;padding:0 0 14px 26px;border-left:2px solid #c6d2e4;margin-left:8px;}
+  .timeline li:last-child{border-left:2px solid transparent;}
+  .timeline li::before{content:"";position:absolute;left:-7px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--gold);border:2px solid var(--navy);}
+  .timeline .when{font-family:'Segoe UI',Arial,sans-serif;font-weight:700;color:var(--navy);font-size:.85rem;display:block;}
+
+  .num{text-align:right;white-space:nowrap;}
+  .ctr{text-align:center;}
+  main a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(46,109,164,.4);}
+  main a:hover{color:var(--navy-dark);background:#eef3fa;border-bottom-color:var(--navy);}
+  .badge.free{background:#e2f4ea;color:var(--new);border:1px solid #9fd4b6;}
+  .badge.lib{background:#eef0f4;color:var(--muted);border:1px solid #c4ccd8;}
+
+  footer{background:var(--navy-dark);color:#b9c6da;text-align:center;padding:24px 16px;font-family:'Segoe UI',Arial,sans-serif;font-size:.8rem;}
+  @media (max-width:700px){.info-grid{grid-template-columns:1fr;} section{padding:20px 16px;} table{font-size:.8rem;} th,td{padding:6px 8px;}}
+  @media print{nav{display:none;} body{background:#fff;} section{box-shadow:none;border:none;page-break-inside:avoid;} header.masthead{-webkit-print-color-adjust:exact;print-color-adjust:exact;}}
+  @media print{main a{color:var(--ink);border-bottom:none;} main a[href^="http"]::after{content:" [" attr(href) "]";font-family:'Segoe UI',Arial,sans-serif;font-size:.62rem;color:#5c6b7a;word-break:break-all;}}
+
+  /* ============================================================
+     UNIT-PAGE COMPONENTS  (used by index.html and units/*.html)
+     ============================================================ */
+  .crumb{font-family:'Segoe UI',Arial,sans-serif;font-size:.8rem;color:var(--muted);margin-bottom:12px;}
+  .crumb a{border-bottom:none;}
+  .crumb span{margin:0 6px;color:#aab4c2;}
+
+  .cardgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;margin:18px 0 6px;}
+  .card{border:1px solid var(--line);border-radius:8px;padding:15px 17px;background:#fff;transition:box-shadow .15s,border-color .15s;}
+  .card:hover{box-shadow:0 2px 10px rgba(20,35,60,.10);border-color:#b9c8de;}
+  .card .wk{font-family:'Segoe UI',Arial,sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
+  .card h4{margin:3px 0 5px;font-size:1rem;}
+  .card h4 a{border-bottom:none;color:var(--navy);}
+  .card h4 a:hover{color:var(--accent);background:none;}
+  .card p{font-size:.86rem;line-height:1.5;margin:0;text-align:left;color:var(--muted);}
+
+  .qlist{margin:0 0 16px 26px;}
+  .qlist li{margin-bottom:12px;}
+  .qlist .opts{list-style:upper-alpha;margin:6px 0 0 22px;font-family:'Segoe UI',Arial,sans-serif;font-size:.9rem;}
+  .qlist .opts li{margin-bottom:3px;}
+
+  details.key{background:#f2f7ee;border-left:4px solid var(--new);border-radius:0 6px 6px 0;padding:11px 17px;margin:16px 0;}
+  details.key summary{cursor:pointer;font-family:'Segoe UI',Arial,sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.11em;text-transform:uppercase;color:var(--navy);}
+  details.key[open] summary{margin-bottom:9px;}
+  details.key p,details.key ol,details.key ul{font-size:.92rem;}
+
+  .todo{background:#fdf7e6;border-left:4px solid var(--gold);border-radius:0 6px 6px 0;padding:12px 17px;margin:16px 0;
+        font-family:'Segoe UI',Arial,sans-serif;font-size:.87rem;line-height:1.6;color:#7a5c12;}
+  .todo strong{color:#5d460d;}
+
+  .steps{counter-reset:step;list-style:none;margin:14px 0 14px 0;padding-left:0;}
+  .steps li{position:relative;padding:0 0 12px 40px;}
+  .steps li::before{counter-increment:step;content:counter(step);position:absolute;left:0;top:1px;width:26px;height:26px;
+        border-radius:50%;background:var(--navy);color:#fff;font-family:'Segoe UI',Arial,sans-serif;font-size:.8rem;
+        font-weight:700;display:flex;align-items:center;justify-content:center;}
+
+  @media print{details.key{border-left-color:#999;} details.key summary{display:none;} .todo{display:none;}}
